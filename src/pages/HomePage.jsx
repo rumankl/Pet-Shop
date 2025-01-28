@@ -1,9 +1,12 @@
 import React from 'react'
+import Popup from '../Home/Popup'
+import DisplayImage from '../Home/DisplayImage';
 
 const HomePage = () => {
   return (
     <div>
-      <h1>he</h1>
+      <Popup />
+      <DisplayImage />
     </div>
 
 

@@ -1,12 +1,22 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { Button } from "@material-tailwind/react";
+import ProfileMenu from '../UI/ProfileMenu';
+
+
 const Header = () => {
+  const nav = useNavigate();
+
+  const { user } = useSelector((state) => state.userSlice);
+
   return (
     <div>
       <div className='flex  p-4  justify-between gap-8 items-center'>
 
         <div className='flex  justify-center items-center'>
-          <img className='border rounded-full  border-e-white border-orange-400' src="R-removebg-preview.png" alt="dog" height={100} width={100} />
+          <img className='border rounded-full  border-e-white border-orange-400 border-s-8  border-s-black' src="R-removebg-preview.png" alt="dog" height={100} width={100} />
           <h1 className='text-3xl font-semibold  text-orange-600'>Global <span className='text-black'>Pet Shop</span></h1>
         </div>
         <div className='flex  p-4  justify-between gap-8'>
@@ -22,8 +32,14 @@ const Header = () => {
         <NavLink to="/service-page">Service</NavLink>
         <NavLink to="/contact-page">Contact</NavLink>
       </nav>
+      <div>
+        {user ? <ProfileMenu user={user} /> : <Button onClick={() => nav('/login')} size="sm" variant="text">
+          <span>Log In</span>
+        </Button>}
+
+      </div>
     </div >
+
   )
 }
-
 export default Header

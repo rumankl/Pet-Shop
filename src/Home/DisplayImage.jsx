@@ -35,16 +35,17 @@ const DisplayImage = () => {
 
 
   return (
-    <div className="relative w-full h-[400px] rounded-xl overflow-hidden top-4">
+    <div className="relative w-full h-[400px] rounded-xl overflow-hidden top-4 ">
       {/* Slides */}
       <div className="relative w-full h-full flex transition-transform duration-500"
-        style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+      >
         {slides.map((slide, index) => (
           <img
             key={index}
             src={slide}
             alt={`slide ${index + 1}`}
-            className={`w-full h-full object-cover ${index === activeIndex ? "bg-orange-500" : "bg-gray-300"}`}
+            className={`w-full h-full object-cover `}
             style={{ minWidth: "100%" }}
           />
         ))}
@@ -67,10 +68,12 @@ const DisplayImage = () => {
       {/* Prev Button */}
       <IconButton
         variant="text"
-        color="white"
+        color="orange"
         size="lg"
         onClick={handlePrev}
+        disabled={activeIndex === 0}
         className="!absolute top-2/4 left-4 -translate-y-2/4 z-20"
+
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +81,7 @@ const DisplayImage = () => {
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="h-6 w-6"
+          className="h-6 w-6  "
         >
           <path
             strokeLinecap="round"
@@ -95,6 +98,7 @@ const DisplayImage = () => {
         size="lg"
         onClick={handleNext}
         className="!absolute top-2/4 right-4 -translate-y-2/4 z-20"
+        disabled={activeIndex === slides.length - 1}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -103,6 +107,7 @@ const DisplayImage = () => {
           strokeWidth={2}
           stroke="currentColor"
           className="h-6 w-6"
+
         >
           <path
             strokeLinecap="round"

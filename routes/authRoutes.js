@@ -18,6 +18,6 @@ const signupSchema = Joi.object({
 
 
 const router = express.Router();
-router.route('/users/login').post(validate.body(loginSchema), loginuser);
-router.route('/users/signup').post(validate.body(signupSchema), signupuser);
+router.route('/login').post(validate.body(loginSchema), loginuser);
+router.route('/signup').post(validate.body(signupSchema), signupuser);
 export default router;

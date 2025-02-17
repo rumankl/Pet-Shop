@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import authRoutes from "./routes/authRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
-
+import orderRoutes from "./routes/orderRoutes.js";
 import fileUpload from "express-fileupload";
 
 const port = 5001;
@@ -31,6 +31,8 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', authRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
+
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`)

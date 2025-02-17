@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export const usercheck = (req, res, next) => {
+export const userCheck = (req, res, next) => {
   const token = req.headers.authorization;
   const decode = jwt.decode(token, 'token');
   if (decode) {
@@ -11,7 +11,7 @@ export const usercheck = (req, res, next) => {
     return res.status(401).json({ message: 'unauthorized user' });
   }
 }
-export const admincheck = (req, res, next) => {
+export const adminCheck = (req, res, next) => {
   if (req.isAdmin) {
     next();
   } else {

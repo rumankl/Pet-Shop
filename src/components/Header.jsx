@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Button } from "@material-tailwind/react";
-import ProfileMenu from '../UI/ProfileMenu';
+import ProfileMenu from '../ui/ProfileMenu';
 
 
 const Header = () => {

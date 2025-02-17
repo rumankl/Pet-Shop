@@ -29,6 +29,7 @@ const Clothing = () => {
         <CardFooter className="pt-0">
           <Button>ADD TO CART</Button>
         </CardFooter>
+
       </Card>
     </div>
   )

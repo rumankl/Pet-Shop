@@ -67,3 +67,43 @@ export const signupuser = async (req, res) => {
     return res.status(400).json({ message: `${error.message}` });
   }
 }
+
+export const updateUser = async (req, res) => {
+  const { email, password, fullname } = req.body;
+
+  try {
+    const isExist = await User.findById(req.id);
+    if (isExist) {
+      isExist.fullname = fullname || isExist.fullname;
+      isExist.password = password || isExist.password;
+      isExist.email = email || isExist.email;
+      await isExist.save(); // it will save in DB
+      return res.status(200).json({ message: 'successfully updated' });
+    } else {
+      return res.status(401).json({ message: 'user not found' });
+    }
+
+  } catch (err) {
+    return res.status(400).json({ message: `${err}` });
+
+  }
+
+}
+
+export const getUserProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.id).select('fullname email');
+    if (!user) return res.status(404).json({ message: 'user not found' });
+    return res.status(200).json(user);
+  } catch (err) {
+    return res.status(400).json({ message: `${err}` });
+  }
+}
+// export const userLogout = async (req, res) => {
+//   try {
+//     res.clearCookie('jwt');
+//     res.status(200).json({ message: 'Logged out successfully' });
+//   } catch (err) {
+//     return res.status(400).json({ message: `${err}` });
+//   }
+// }

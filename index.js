@@ -4,6 +4,8 @@ import authRoutes from "./routes/authRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import fileUpload from "express-fileupload";
+import FoodRoutes from "./routes/FoodRoutes.js";
+import foodOrderRoutes from "./routes/foodOrderRoutes.js";
 
 const port = 5001;
 import cors from "cors";
@@ -16,6 +18,7 @@ app.use(cors());
 
 app.use(express.json());
 app.use(express.static('uploads'));
+// app.use(express.static('uploading'));
 app.use(fileUpload());
 
 mongoose.connect('mongodb+srv://rulokifs:mongodb@cluster0.xlryd.mongodb.net/PetShop').then((val) => {
@@ -32,7 +35,10 @@ app.get('/', (req, res) => {
 app.use('/api/users', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
-
+// app.use('/api/foods', require('./routes/foodRoutes'));
+// app.use('/api/orders', require('./routes/orderRoutes'));
+app.use('/api/foods', FoodRoutes);
+app.use('/api/foodorders', foodOrderRoutes);
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`)

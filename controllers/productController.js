@@ -3,7 +3,7 @@ import fs from 'fs';
 import mongoose from "mongoose";
 // Middleware to set query parameters for top products
 export const getTopProducts = (req, res, next) => {
-  req.query.rating = { gt: 4.7 }; // Fetch products with ratings greater than 4.7
+  req.query.rating = { gt: 4.5 }; // Fetch products with ratings greater than 4.7
   req.query.limit = 5; // Limit results to 5
   next(); // Pass control to the next middleware or route handler
 };

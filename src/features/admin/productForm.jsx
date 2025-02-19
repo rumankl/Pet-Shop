@@ -6,6 +6,7 @@ import {
   Textarea,
   Option,
   Select,
+  rating,
 } from "@material-tailwind/react";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';

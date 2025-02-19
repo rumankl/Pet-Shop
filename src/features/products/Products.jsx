@@ -1,18 +1,27 @@
 import { Card, CardBody, CardFooter, CardHeader, Typography, Button } from "@material-tailwind/react";
 import { useGetProductsQuery } from "./productApi"
-import TopProducts from "./TopProducts"
+// import TopProducts from "./TopProducts"
 import { base } from "../../data/apis";
 import CardLoading from "../../ui/CardLoading";
 import { useNavigate } from "react-router";
+import TopPetClothing from "./TopPetClothing";
+import DisplayImage from "../../Home/DisplayImage";
+import PetFoodies from "../../Home/PetFoodies";
+
+// import Popup from "../../Home/Popup";
 
 const Products = () => {
   const nav = useNavigate();
   const { isLoading, isError, error, data } = useGetProductsQuery();
-
+  // console.log(data)
   return (
     <div>
+      {/* <Popup /> */}
+      <DisplayImage />
+      <TopPetClothing />
+      <PetFoodies />
 
-      <TopProducts />
+      {/* <TopProducts /> */}
       {isLoading ? <CardLoading /> :
         <div className="grid grid-cols-3 gap-4">
 

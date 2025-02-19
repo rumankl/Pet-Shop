@@ -12,6 +12,7 @@ import {
   UserCircleIcon,
   ChevronDownIcon,
   PowerIcon,
+  UserIcon,
 } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -42,9 +43,19 @@ const adminMenuItems = [
     value: "profile",
   },
   {
+    label: "image",
+    icon: UserIcon,
+    value: "image",
+  },
+  {
     label: "Products",
     icon: UserCircleIcon,
     value: "products",
+  },
+  {
+    label: "Foods",
+    icon: UserCircleIcon,
+    value: "foods",
   },
 
   {
@@ -99,6 +110,15 @@ const ProfileMenu = ({ user }) => {
 
                   case "products":
                     nav('/product-admin');
+
+                    break;
+                  case "foods":
+                    nav('/food-admin');
+
+                    break;
+
+                  case "image":
+                    nav('/image-admin');
 
                     break;
 

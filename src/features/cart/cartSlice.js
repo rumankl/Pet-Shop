@@ -3,7 +3,6 @@ import { clearCartsFromLocal, getCartsFromLocal, setCartsToLocal } from "../../h
 
 
 
-
 export const cartSlice = createSlice({
   name: 'cartSlice',
   initialState: {

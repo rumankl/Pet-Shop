@@ -93,7 +93,14 @@ import ProductDetail from './features/products/ProductDetail'
 import CartPage from "./features/cart/CartPage"
 import UserProfile from "./features/profile/UserProfile"
 import OrderDetail from "./features/order/OrderDetail"
-
+import AboutPage from "./pages/AboutPage"
+import ContactPage from "./pages/ContactPage"
+import PetFoodies from "./Home/PetFoodies"
+import SlideImage from "./features/admin/SlideImage/SlideImage"
+import Dog from "./Home/Dog"
+import FoodAdmin from "./features/admin/food/FoodAdmin"
+import FoodForm from "./features/admin/food/FoodForm"
+import Food from "./features/food/Food"
 const App = () => {
 
   const router = createBrowserRouter([
@@ -107,12 +114,33 @@ const App = () => {
 
         },
         {
+          path: '/about-page',
+          element: <AboutPage />
+        },
+
+        {
+          path: '/contact-page',
+          element: <ContactPage />
+        },
+        {
           path: 'product-admin',
           element: <ProductAdmin />
         },
         {
+          path: 'food-admin',
+          element: <FoodAdmin />
+        },
+        {
+          path: 'image-admin',
+          element: <SlideImage />
+        },
+        {
           path: 'product-form',
           element: <ProductForm />
+        },
+        {
+          path: 'food-form',
+          element: <FoodForm />
         },
 
 
@@ -140,6 +168,10 @@ const App = () => {
           element: <CartPage />
         },
 
+        {
+          path: "food",
+          element: <Food />
+        },
 
         {
           element: <UserRoutes />,
@@ -156,7 +188,8 @@ const App = () => {
 
             }
           ]
-        }
+        },
+
 
       ]
     },

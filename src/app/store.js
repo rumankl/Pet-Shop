@@ -4,7 +4,7 @@ import { userSlice } from "../features/auth/userSlice";
 import { cartSlice } from "../features/cart/cartSlice";
 import { orderApi } from "../features/order/orderApi";
 import { productApi } from "../features/products/productApi";
-
+import { foodApi } from "../features/food/foodApi";
 export const store = configureStore({
   reducer: {
 
@@ -12,12 +12,14 @@ export const store = configureStore({
     [cartSlice.name]: cartSlice.reducer,
     [authApi.reducerPath]: authApi.reducer,
     [productApi.reducerPath]: productApi.reducer,
-    [orderApi.reducerPath]: orderApi.reducer
+    [orderApi.reducerPath]: orderApi.reducer,
+    [foodApi.reducerPath]: foodApi.reducer
   },
   //caching, polling, invalidation and others
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([
     authApi.middleware,
     productApi.middleware,
-    orderApi.middleware
+    orderApi.middleware,
+    foodApi.middleware
   ])
 });

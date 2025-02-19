@@ -31,6 +31,8 @@ const Header = () => {
         <NavLink to="/product-page">Product</NavLink>
         <NavLink to="/service-page">Service</NavLink>
         <NavLink to="/contact-page">Contact</NavLink>
+        <NavLink to="/food">Food</NavLink>
+
       </nav>
       <div>
         {user ? <ProfileMenu user={user} /> : <Button onClick={() => nav('/login')} size="sm" variant="text">

@@ -14,6 +14,11 @@ const foodSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    category: {
+      type: String,
+      enum: ["Dog", "Cat", "Bird", "Fish"],
+      required: true,
+    },
     image: {
       type: String,
       required: true,

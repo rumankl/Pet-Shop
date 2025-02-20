@@ -24,6 +24,7 @@ const FoodForm = () => {
   const FoodSchema = Yup.object({
     name: Yup.string().required("Food name is required"),
     description: Yup.string().required("Food description is required"),
+    category: Yup.string().required("required"),
     price: Yup.number()
       .typeError("Price must be a number")
       .required("Food price is required"),
@@ -50,7 +51,7 @@ const FoodForm = () => {
       price: '',
       // stock: '',
       // brand: '',
-      // category: '',
+      category: '',
       image: null,
       imageReview: ''
 
@@ -63,7 +64,7 @@ const FoodForm = () => {
       formData.append('price', val.price);
       // formData.append('stock', val.stock);
       // formData.append('brand', val.brand);
-      // formData.append('category', val.category);
+      formData.append('category', val.category);
       formData.append('image', val.image);
       try {
         await addFoods({
@@ -123,11 +124,13 @@ const FoodForm = () => {
             <Option value="Tesla">Tesla</Option>
             <Option value="Gucci">Gucci</Option>
 
-          </Select>
-          <Select onChange={(e) => setFieldValue('category', e)} label="Select Category">
-            <Option value="Clothes">Clothes</Option>
-            <Option value="Tech">Tech</Option>
-          </Select> */}
+          </Select>*/}
+            <Select onChange={(e) => setFieldValue('category', e)} label="Select Category">
+              <Option value="Dog">Dog</Option>
+              <Option value="Cat">Cat</Option>
+              <Option value="Bird">Bird</Option>
+              <Option value="Fish">Fish</Option>
+            </Select>
 
             <Textarea
               size="lg"

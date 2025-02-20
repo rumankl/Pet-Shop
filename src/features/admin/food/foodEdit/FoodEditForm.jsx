@@ -12,22 +12,19 @@ import { useNavigate } from 'react-router';
 import * as Yup from 'yup';
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { base } from "../../../data/apis";
-import { useUpdateProductMutation } from "../../products/productApi";
+import { base } from "../../../../data/apis";
+import { useUpdateFoodMutation } from "../../../food/foodApi";
 
+const FoodEditForm = ({ food }) => {
+  const [updateFood, { isLoading }] = useUpdateFoodMutation();
+  console.log(food);
 
-
-
-
-const ProductEditForm = ({ product }) => {
-  const [updateProduct, { isLoading }] = useUpdateProductMutation();
-  console.log(product);
   // const { user } = useSelector((state) => state.userSlice);
   const { user } = useSelector((state) => state.userSlice);
   const nav = useNavigate();
 
-  const productSchema = Yup.object({
-    title: Yup.string().required(),
+  const foodSchema = Yup.object({
+    name: Yup.string().required(),
     description: Yup.string().required(),
     price: Yup.number().required(),
     stock: Yup.number().required(),
@@ -42,31 +39,27 @@ const ProductEditForm = ({ product }) => {
     handleSubmit, errors, setFieldValue, touched } = useFormik({
 
       initialValues: {
-        title: product?.title,
-        description: product?.description,
-        price: product?.price,
-        stock: product?.stock,
-        brand: product?.brand,
-        category: product?.category,
+        name: food?.name,
+        description: food?.description,
+        price: food?.price,
+        category: food?.category,
         image: null,
-        imageReview: product?.image
+        imageReview: food?.image
 
       },
 
       onSubmit: async (val, { resetForm }) => {
         const formData = new FormData();
-        formData.append('title', val.title);
+        formData.append('name', val.name);
         formData.append('description', val.description);
         formData.append('price', val.price);
-        formData.append('stock', val.stock);
-        formData.append('brand', val.brand);
         formData.append('category', val.category);
 
         try {
           if (val.image) {
             formData.append('image', val.image);
-            const response = await updateProduct({
-              id: product._id,
+            const response = await updateFood({
+              id: food._id,
               body: formData,
               // token: user.token 
               token: user.token
@@ -75,8 +68,8 @@ const ProductEditForm = ({ product }) => {
             nav(-1);
 
           } else {
-            const response = await updateProduct({
-              id: product._id,
+            const response = await updateFood({
+              id: food._id,
               body: formData,
               // token: user.token 
               token: user.token
@@ -91,7 +84,7 @@ const ProductEditForm = ({ product }) => {
 
 
       },
-      // validationSchema: productSchema
+      //validationSchema: foodSchema
 
     });
 
@@ -99,7 +92,7 @@ const ProductEditForm = ({ product }) => {
   return (
     <Card color="transparent" shadow={false} className="max-w-sm  mx-auto mt-4 mb-4">
       <Typography variant="h4" color="blue-gray">
-        Edit Product
+        Edit Food
       </Typography>
 
       <form onSubmit={handleSubmit} className="mt-2">
@@ -109,11 +102,11 @@ const ProductEditForm = ({ product }) => {
             size="lg"
             placeholder="product_name"
             label="product_name"
-            name="title"
-            value={values.title}
+            name="name"
+            value={values.name}
             onChange={handleChange}
           />
-          {errors.title && touched.title && <h1 className='text-pink-700'>{errors.title}</h1>}
+          {errors.name && touched.name && <h1 className='text-pink-700'>{errors.name}</h1>}
 
           <Input
             size="lg"
@@ -124,23 +117,12 @@ const ProductEditForm = ({ product }) => {
             onChange={handleChange}
           />
           {errors.price && touched.price && <h1 className='text-pink-700'>{errors.price}</h1>}
-          <Input
-            size="lg"
-            placeholder="countInStock"
-            label="countInStock"
-            value={values.stock}
-            onChange={handleChange}
-            name="stock"
-          />
-          {errors.stock && touched.stock && <h1 className='text-pink-700'>{errors.stock}</h1>}
-          <Select value={values.brand} onChange={(e) => setFieldValue('brand', e)} label="Select Brand">
-            <Option value="Apple">Apple</Option>
-            <Option value="Tesla">Tesla</Option>
-            <Option value="Gucci">Gucci</Option>
-          </Select>
+
           <Select value={values.category} onChange={(e) => setFieldValue('category', e)} label="Select Category">
-            <Option value="Clothes">Clothes</Option>
-            <Option value="Tech">Tech</Option>
+            <Option value="Dog">Dog</Option>
+            <Option value="Cat">Cat</Option>
+            <Option value="Bird">Bird</Option>
+            <Option value="Fish">Fish</Option>
           </Select>
 
           <Textarea
@@ -184,4 +166,4 @@ const ProductEditForm = ({ product }) => {
     </Card>
   )
 }
-export default ProductEditForm
+export default FoodEditForm

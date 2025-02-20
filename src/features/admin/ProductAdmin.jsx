@@ -6,7 +6,7 @@ import { useGetProductsQuery } from "../products/productApi";
 
 const ProductAdmin = () => {
   const { isLoading, isError, error, data } = useGetProductsQuery();
-
+  console.log(data);
   const nav = useNavigate();
   const TABLE_HEAD = ["", "Title", "CreatedAt",
     "Edit", "Delete"];

@@ -28,7 +28,7 @@ const Header = () => {
       <nav className=' text-1xl text-black bg-orange-300 flex gap-4 justify-center p-4'>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about-page">About Us</NavLink>
-        <NavLink to="/product-page">Product</NavLink>
+        <NavLink to="/all-product-page">Product</NavLink>
         <NavLink to="/service-page">Service</NavLink>
         <NavLink to="/contact-page">Contact</NavLink>
         <NavLink to="/food">Food</NavLink>

@@ -13,7 +13,7 @@ const Food = () => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-      {data?.map(({ _id, name, price, description, image }) => (
+      {data?.foods.map(({ _id, name, price, description, image, category }) => (
         <Card key={_id} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
           <CardHeader shadow={false} floated={false} className="h-56">
             <img src={`${base}/${image}`} alt={name} className="h-full w-full object-cover" />

@@ -14,9 +14,6 @@ const ProductEdit = () => {
 
       {data && <ProductEditForm product={data} />}
 
-
-
-
     </div>
   )
 }

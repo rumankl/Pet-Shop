@@ -101,6 +101,8 @@ import Dog from "./Home/Dog"
 import FoodAdmin from "./features/admin/food/FoodAdmin"
 import FoodForm from "./features/admin/food/FoodForm"
 import Food from "./features/food/Food"
+import FoodEdit from "./features/admin/food/foodEdit/FoodEdit"
+import AllProducts from "./features/products/AllProducts"
 const App = () => {
 
   const router = createBrowserRouter([
@@ -121,6 +123,10 @@ const App = () => {
         {
           path: '/contact-page',
           element: <ContactPage />
+        },
+        {
+          path: '/all-product-page',
+          element: <AllProducts />
         },
         {
           path: 'product-admin',
@@ -147,6 +153,10 @@ const App = () => {
         {
           path: 'product-edit/:id',
           element: <ProductEdit />
+        },
+        {
+          path: 'food-edit/:id',
+          element: <FoodEdit />
         },
 
         {

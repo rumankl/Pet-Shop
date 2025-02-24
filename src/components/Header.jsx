@@ -16,8 +16,8 @@ const Header = () => {
       <div className='flex  p-4  justify-between gap-8 items-center'>
 
         <div className='flex  justify-center items-center'>
-          <img className='border rounded-full  border-e-white border-orange-400 border-s-8  border-s-black' src="R-removebg-preview.png" alt="dog" height={100} width={100} />
-          <h1 className='text-3xl font-semibold  text-orange-600'>Global <span className='text-black'>Pet Shop</span></h1>
+          <img className='border rounded-full  border-e-white border-red-300 border-s-8  border-s-green-400' src="R-removebg-preview.png" alt="dog" height={100} width={100} />
+          <h1 className='text-3xl font-semibold  text-green-600'>Global <span className='text-black'>Pet Shop</span></h1>
         </div>
         <div className='flex  p-4  justify-between gap-8'>
           <span>  Email: globalpet@gmail.com</span>
@@ -25,7 +25,7 @@ const Header = () => {
 
         </div>
       </div>
-      <nav className=' text-1xl text-black bg-orange-300 flex gap-4 justify-center p-4'>
+      <nav className=' text-1xl text-black border-red-300 border-b-2 flex gap-4 justify-center p-4'>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about-page">About Us</NavLink>
         <NavLink to="/all-product-page">Product</NavLink>

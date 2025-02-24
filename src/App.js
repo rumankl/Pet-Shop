@@ -103,6 +103,8 @@ import FoodForm from "./features/admin/food/FoodForm"
 import Food from "./features/food/Food"
 import FoodEdit from "./features/admin/food/foodEdit/FoodEdit"
 import AllProducts from "./features/products/AllProducts"
+import FoodDetail from "./features/food/FoodDetail"
+import FoodCartPage from "./foodcart/FoodCartPage"
 const App = () => {
 
   const router = createBrowserRouter([
@@ -149,7 +151,6 @@ const App = () => {
           element: <FoodForm />
         },
 
-
         {
           path: 'product-edit/:id',
           element: <ProductEdit />
@@ -163,19 +164,26 @@ const App = () => {
           path: 'order-detail/:id',
           element: <OrderDetail />
         },
+
         {
           path: 'user-profile',
           element: <UserProfile />
         },
-
-
         {
           path: 'product-detail/:id',
           element: <ProductDetail />
         },
         {
+          path: 'food-detail/:id',
+          element: <FoodDetail />
+        },
+        {
           path: 'cart-page',
           element: <CartPage />
+        },
+        {
+          path: 'foodcart-page',
+          element: <FoodCartPage />
         },
 
         {

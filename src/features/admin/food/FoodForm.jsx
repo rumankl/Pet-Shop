@@ -49,7 +49,7 @@ const FoodForm = () => {
       name: '',
       description: '',
       price: '',
-      // stock: '',
+      stock: '',
       // brand: '',
       category: '',
       image: null,
@@ -62,7 +62,7 @@ const FoodForm = () => {
       formData.append('name', val.name);
       formData.append('description', val.description);
       formData.append('price', val.price);
-      // formData.append('stock', val.stock);
+      formData.append('stock', val.stock);
       // formData.append('brand', val.brand);
       formData.append('category', val.category);
       formData.append('image', val.image);
@@ -110,21 +110,21 @@ const FoodForm = () => {
             />
             {errors.price && touched.price && <h1 className='text-pink-700'>{errors.price}</h1>}
 
-            {/* <Input
-            size="lg"
-            placeholder="countInStock"
-            label="countInStock"
-            onChange={handleChange}
-            name="stock"
-          />
-          {errors.stock && touched.stock && <h1 className='text-pink-700'>{errors.stock}</h1>}
-          <Select onChange={(e) => setFieldValue('brand', e)} label="Select Brand">
+            <Input
+              size="lg"
+              placeholder="countInStock"
+              label="countInStock"
+              onChange={handleChange}
+              name="stock"
+            />
+            {errors.stock && touched.stock && <h1 className='text-pink-700'>{errors.stock}</h1>}
+            <Select onChange={(e) => setFieldValue('brand', e)} label="Select Brand">
 
-            <Option value="Apple">Apple</Option>
-            <Option value="Tesla">Tesla</Option>
-            <Option value="Gucci">Gucci</Option>
+              <Option value="Apple">Apple</Option>
+              <Option value="Tesla">Tesla</Option>
+              <Option value="Gucci">Gucci</Option>
 
-          </Select>*/}
+            </Select>
             <Select onChange={(e) => setFieldValue('category', e)} label="Select Category">
               <Option value="Dog">Dog</Option>
               <Option value="Cat">Cat</Option>

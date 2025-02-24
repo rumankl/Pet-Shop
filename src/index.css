@@ -16,3 +16,7 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+imagecolor {
+  color: red;
+}

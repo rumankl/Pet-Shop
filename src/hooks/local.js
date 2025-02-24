@@ -29,3 +29,21 @@ export const clearCartsFromLocal = () => {
 export const clearUser = () => {
   localStorage.clear();
 }
+
+////foodCart----//////////////////
+
+export const setFoodCartsToLocal = (foodcarts) => {
+  localStorage.setItem('foodcarts', JSON.stringify(foodcarts));
+}
+
+
+export const getFoodCartsFromLocal = () => {
+  const foodcarts = localStorage.getItem('foodcarts');
+  return foodcarts ? JSON.parse(foodcarts) : [];
+}
+
+
+export const clearFoodCartsFromLocal = () => {
+  localStorage.removeItem('foodcarts');
+}
+

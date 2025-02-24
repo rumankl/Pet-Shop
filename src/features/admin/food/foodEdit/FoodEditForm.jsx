@@ -42,6 +42,7 @@ const FoodEditForm = ({ food }) => {
         name: food?.name,
         description: food?.description,
         price: food?.price,
+        stock: food?.stock,
         category: food?.category,
         image: null,
         imageReview: food?.image
@@ -53,6 +54,7 @@ const FoodEditForm = ({ food }) => {
         formData.append('name', val.name);
         formData.append('description', val.description);
         formData.append('price', val.price);
+        formData.append('stock', val.stock);
         formData.append('category', val.category);
 
         try {

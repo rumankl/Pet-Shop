@@ -1,22 +1,35 @@
 import mongoose from "mongoose";
 
-const FoodOrderSchema = new mongoose.Schema({
+
+const FoodorderSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
+    required: true,
     ref: 'User'
   },
-  items: [
+  totalAmount: {
+    type: Number,
+    required: true,
+  },
+
+  orderItems: [
     {
-      food:
-      {
+      name: { type: String, required: true },
+      qty: { type: Number, required: true },
+      image: { type: String, required: true },
+      price: { type: Number, required: true },
+      food: {
         type: mongoose.Schema.Types.ObjectId,
+        required: true,
         ref: 'Food'
       },
-      quantity: Number
-    }],
-  totalPrice: Number,
-  status: { type: String, default: 'Pending' }
-});
+    }
+  ]
 
-const FoodOrder = mongoose.model('FoodOrder', FoodOrderSchema);
+
+}, { timestamps: true });
+
+
+const FoodOrder = mongoose.model('FoodOrder', FoodorderSchema);
+
 export default FoodOrder;

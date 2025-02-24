@@ -97,7 +97,7 @@ export const addFoods = async (req, res) => {
   const {
     name,
     description,
-    price, category } = req.body;
+    price, category, stock } = req.body;
 
   try {
     await Food.create({
@@ -106,6 +106,7 @@ export const addFoods = async (req, res) => {
       image: req.image,
       category,
       price: Number(price),
+      stock: Number(stock),
     });
     return res.status(200).json({ message: 'success' });
   } catch (err) {
@@ -122,7 +123,7 @@ export const updateFood = async (req, res) => {
     name,
     description,
     category,
-    price, } = req.body;
+    price, stock } = req.body;
 
   try {
 
@@ -142,6 +143,7 @@ export const updateFood = async (req, res) => {
           image: req.newImage,
           category: category || isExist.category,
           price: Number(price) || isExist.price,
+          stock: Number(stock) || isExist.stock
         });
 
     } else {
@@ -151,11 +153,10 @@ export const updateFood = async (req, res) => {
           description: description || isExist.description,
           category: category || isExist.category,
           price: Number(price) || isExist.price,
+          stock: Number(stock) || isExist.stock
 
         });
-
     }
-
     return res.status(200).json({ message: 'success' });
 
   } catch (err) {
@@ -180,7 +181,6 @@ export const removeFood = async (req, res) => {
       console.log(err);
       // OR if (err) console.log(err); yo halo vaney nullss aaudaina in consolema
     });
-
 
     return res.status(200).json({ message: 'success' });
   } catch (err) {

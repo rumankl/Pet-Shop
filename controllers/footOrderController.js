@@ -1,20 +1,54 @@
-// const Order = require('../models/Order');
-import Order from "../models/Order.js";
-
-export const createOrder = async (req, res) => {
+import FoodOrder from "../models/FoodOrder.js";
+export const getAllFoodOrder = async (req, res) => {
   try {
-    const order = await Order.create(req.body);
-    res.status(201).json(order);
+    const foodorders = await FoodOrder.find({});
+    return res.status(200).json(foodorders);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    return res.status(400).json({ message: `${err}` });
   }
-};
+}
 
-export const getOrdersByUser = async (req, res) => {
+export const getFoodOrderUser = async (req, res) => {
   try {
-    const orders = await Order.find({ user: req.params.userId }).populate('items.food');
-    res.json(orders);
+    const foodorders = await FoodOrder.find({ user: req.id });
+    return res.status(200).json(foodorders);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    return res.status(400).json({ message: `${err}` });
   }
-};
+}
+
+export const getFoodOrderDetail = async (req, res) => {
+  try {
+    const foodorder = await FoodOrder.findById(req.params.id).populate([
+      {
+        path: 'user',
+        model: 'User',
+        select: 'fullname email'
+      },
+      {
+        path: 'orderItems.food',
+        model: 'Food',
+        select: 'name image'
+
+      }
+    ]);
+    return res.status(200).json(foodorder);
+  } catch (err) {
+    return res.status(400).json({ message: `${err}` });
+  }
+}
+export const addFoodOrder = async (req, res) => {
+  const { totalAmount, orderItems } = req.body;
+  try {
+    await FoodOrder.create({
+      totalAmount,
+      orderItems,
+      user: req.id
+    });
+    return res.status(200).json({ message: 'successfully order created' });
+  } catch (err) {
+    return res.status(400).json({ message: `${err}` });
+  }
+}
+
+

@@ -2,15 +2,17 @@
 import express from "express";
 
 // const { createOrder, getOrdersByUser } = require('../controllers/orderController');
-import { createOrder, getOrdersByUser } from '../controllers/footOrderController.js';
-
 // const protect = require('../middleware/authMiddleware');
 import { adminCheck, userCheck } from '../middlewares/authCheck.js';
+import { addFoodOrder, getAllFoodOrder, getFoodOrderDetail, getFoodOrderUser } from "../controllers/footOrderController.js";
 
 const router = express.Router();
 
-// router.post('/', protect, createOrder);
-// router.get('/:userId', protect, getOrdersByUser);
-router.route('/').post(userCheck, adminCheck, createOrder).get(userCheck, getOrdersByUser);
+router.route('/').get(userCheck, adminCheck, getAllFoodOrder).post(userCheck, addFoodOrder);
+
+// router.route('/users').get(userCheck, getFoodOrderUser)
+
+// router.route('/users/:id').get(userCheck, getFoodOrderDetail);
 
 export default router;
+

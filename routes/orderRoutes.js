@@ -1,5 +1,5 @@
 import express from 'express';
-import { addOrder, getAllOrder, getOrderDetail, getOrderUser } from '../Controllers/orderController.js';
+import { getAllOrder, addOrder, getOrderUser, getOrderDetail } from '../controllers/orderController.js';
 import { adminCheck, userCheck } from '../middlewares/authCheck.js';
 // import { userCheck, adminCheck } from '../middleware/authCheck.js';
 

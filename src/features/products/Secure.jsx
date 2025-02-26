@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Secure = () => {
   const head = [
     {
@@ -25,6 +24,7 @@ const Secure = () => {
   ];
   return (
     <div className='flex flex-cols justify-around items-center gap-6  mb-32 '>
+
       {head.map((item, i) => (
         <div key={i} className="flex flex-col items-center justify-center text-center p-4">
           <img className=" w-20 h-20 object-cover rounded-full  hover:scale-125 transition-all' size='150" src={item.image} alt={item.title} />

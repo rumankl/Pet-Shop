@@ -105,6 +105,7 @@ import FoodEdit from "./features/admin/food/foodEdit/FoodEdit"
 import AllProducts from "./features/products/AllProducts"
 import FoodDetail from "./features/food/FoodDetail"
 import FoodCartPage from "./foodcart/FoodCartPage"
+import FormMeetTeam from "./pages/FormMeetTeam"
 const App = () => {
 
   const router = createBrowserRouter([
@@ -135,9 +136,14 @@ const App = () => {
           element: <ProductAdmin />
         },
         {
+          path: "meet-team-admin",
+          element: <FormMeetTeam />
+        },
+        {
           path: 'food-admin',
           element: <FoodAdmin />
         },
+
         {
           path: 'image-admin',
           element: <SlideImage />

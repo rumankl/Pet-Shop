@@ -3,6 +3,7 @@ import React from 'react'
 const ContactPage = () => {
   return (
     <div className="flex flex-col items-center p-4 space-y-6">
+
       <div className="w-full max-w-screen-lg">
         <iframe
           title="Patan Darbar Square Map"

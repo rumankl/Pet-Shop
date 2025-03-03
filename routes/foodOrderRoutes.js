@@ -10,9 +10,9 @@ const router = express.Router();
 
 router.route('/').get(userCheck, adminCheck, getAllFoodOrder).post(userCheck, addFoodOrder);
 
-// router.route('/users').get(userCheck, getFoodOrderUser)
+router.route('/users').get(userCheck, getFoodOrderUser)
 
-// router.route('/users/:id').get(userCheck, getFoodOrderDetail);
+router.route('/users/:id').get(userCheck, getFoodOrderDetail);
 
 export default router;
 

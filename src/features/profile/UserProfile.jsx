@@ -5,6 +5,8 @@ import { useFormik } from "formik";
 
 import { useUserProfileQuery } from "../auth/authApi";
 import ProfileCard from "./ProfileCard";
+import UserFoodOrder from "../foodOrder/UserFoodOrder";
+import AdminFoodOrder from "../foodOrder/AdminFoodOrder";
 
 const UserProfile = () => {
   const { user } = useSelector((state) => state.userSlice);
@@ -31,6 +33,8 @@ const UserProfile = () => {
 
       <div className="col-span-2">
         {user.isAdmin ? <AdminOrder user={user} /> : <UserOrder user={user} />}
+
+        {user.isAdmin ? <AdminFoodOrder user={user} /> : <UserFoodOrder user={user} />}
       </div>
 
 

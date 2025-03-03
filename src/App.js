@@ -106,6 +106,7 @@ import AllProducts from "./features/products/AllProducts"
 import FoodDetail from "./features/food/FoodDetail"
 import FoodCartPage from "./foodcart/FoodCartPage"
 import FormMeetTeam from "./pages/FormMeetTeam"
+import FoodOrderDetail from "./features/foodOrder/FoodOrderDetail"
 const App = () => {
 
   const router = createBrowserRouter([
@@ -169,6 +170,10 @@ const App = () => {
         {
           path: 'order-detail/:id',
           element: <OrderDetail />
+        },
+        {
+          path: 'foodorder-detail/:id',
+          element: <FoodOrderDetail />
         },
 
         {

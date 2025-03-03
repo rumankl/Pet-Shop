@@ -61,5 +61,11 @@ export const foodorderApi = createApi({
   })
 
 });
-export const { useGetAllFoodOrdersQuery, useGetUserFoodOrdersQuery, useGetFoodOrderDetailQuery, useAddFoodOrderMutation } = foodorderApi
+export const
+  {
+    useGetAllFoodOrdersQuery,
+    useGetUserFoodOrdersQuery, ///yo
+    useGetFoodOrderDetailQuery,
+    useAddFoodOrderMutation
+  } = foodorderApi
 

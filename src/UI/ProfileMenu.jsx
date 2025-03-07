@@ -62,6 +62,16 @@ const adminMenuItems = [
     icon: UserCircleIcon,
     value: "meetteam",
   },
+  {
+    label: " Latest Blog",
+    icon: UserCircleIcon,
+    value: "latestblog",
+  },
+  {
+    label: " Message",
+    icon: UserCircleIcon,
+    value: "message",
+  },
 
   {
     label: "Sign Out",
@@ -122,12 +132,19 @@ const ProfileMenu = ({ user }) => {
 
                     break;
 
-                  case "image":
-                    nav('/image-admin');
 
-                    break;
                   case "meetteam":
                     nav('/meet-team-admin');
+
+                    break;
+                  case "latestblog":
+                    nav('/latestblog-admin');
+
+                    break;
+
+
+                  case "message":
+                    nav('/all-message');
 
                     break;
 

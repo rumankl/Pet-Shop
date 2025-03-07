@@ -107,6 +107,11 @@ import FoodDetail from "./features/food/FoodDetail"
 import FoodCartPage from "./foodcart/FoodCartPage"
 import FormMeetTeam from "./pages/FormMeetTeam"
 import FoodOrderDetail from "./features/foodOrder/FoodOrderDetail"
+import LatestBlogDetail from "./features/products/LatestBlogDetail"
+import FormLatestBlog from "./pages/FormLatestBlog"
+import LatestBlogId from "./features/products/LatestBlogId"
+import DisplayMessage from "./features/message/DisplayMessage"
+import MessageDetail from "./features/message/MessageDetail"
 const App = () => {
 
   const router = createBrowserRouter([
@@ -141,6 +146,10 @@ const App = () => {
           element: <FormMeetTeam />
         },
         {
+          path: "latestblog-admin",
+          element: <FormLatestBlog />
+        },
+        {
           path: 'food-admin',
           element: <FoodAdmin />
         },
@@ -172,6 +181,14 @@ const App = () => {
           element: <OrderDetail />
         },
         {
+          path: 'all-message',
+          element: <DisplayMessage />
+        },
+        {
+          path: 'message-detail/:id',
+          element: <MessageDetail />
+        },
+        {
           path: 'foodorder-detail/:id',
           element: <FoodOrderDetail />
         },
@@ -200,6 +217,14 @@ const App = () => {
         {
           path: "food",
           element: <Food />
+        },
+        {
+          path: "latest-blog",
+          element: <LatestBlogDetail />
+        },
+        {
+          path: "/latest-blog/:id",
+          element: <LatestBlogId />
         },
 
         {

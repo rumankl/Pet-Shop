@@ -1,9 +1,10 @@
 import React from 'react'
+import { Typography, Button, Textarea, Input } from '@material-tailwind/react'
+import CreateMessage from '../features/message/CreateMessage'
 
 const ContactPage = () => {
   return (
-    <div className="flex flex-col items-center p-4 space-y-6">
-
+    <div className="flex flex-cols items-center p-4 space-y-6 gap-6">
       <div className="w-full max-w-screen-lg">
         <iframe
           title="Patan Darbar Square Map"
@@ -14,6 +15,45 @@ const ContactPage = () => {
           allowFullScreen
         ></iframe>
       </div>
+      <div>
+        <CreateMessage />
+      </div>
+      {/* 
+      <div className="w-[400px] max-w-screen-md">
+        <Typography variant="h6" color="red-gray" className="mb-3 ">
+          Your Name
+        </Typography>
+        <Input
+          size="lg"
+          placeholder="Your name"
+          className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+          labelProps={{
+            className: "before:content-none after:content-none",
+          }}
+        />
+
+        <Typography variant="h6" color="blue-gray" className="mb-3 mt-4">
+          Your Email
+        </Typography>
+        <Input
+          size="lg"
+          placeholder="name@mail.com"
+          className="!border-t-blue-gray-200 focus:!border-t-gray-900 "
+          labelProps={{
+            className: "before:content-none after:content-none",
+          }}
+        />
+
+        <Typography variant="h6" color="blue-gray" className="mb-2 mt-4">
+          Your Message
+        </Typography>
+        <Textarea
+          color="blue-gray"
+          label="Message"
+        />
+
+        <Button className="mt-4">Submit</Button>
+      </div> */}
     </div>
   )
 }

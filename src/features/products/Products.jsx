@@ -5,6 +5,7 @@ import DisplayImage from "../../Home/DisplayImage";
 import PetFoodies from "../../Home/PetFoodies";
 import Advertisement from './Advertisement';
 import Secure from './Secure';
+import LatestBlog from './LatestBlog';
 
 // import Popup from "../../Home/Popup";
 
@@ -17,6 +18,7 @@ const Products = () => {
       <TopPetClothing />
       <PetFoodies />
       <Advertisement />
+      <LatestBlog />
       <Secure />
 
 

@@ -6,6 +6,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import fileUpload from "express-fileupload";
 import FoodRoutes from "./routes/FoodRoutes.js";
 import foodOrderRoutes from "./routes/foodOrderRoutes.js";
+import messageRoutes from "./routes/messageRoutes.js";
 
 const port = 5001;
 import cors from "cors";
@@ -39,6 +40,7 @@ app.use('/api/orders', orderRoutes);
 // app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/foods', FoodRoutes);
 app.use('/api/foodorders', foodOrderRoutes);
+app.use('/api/messages', messageRoutes);
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`)

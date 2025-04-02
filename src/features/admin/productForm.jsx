@@ -6,7 +6,7 @@ import {
   Textarea,
   Option,
   Select,
-  rating,
+  Rating,
 } from "@material-tailwind/react";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -32,6 +32,7 @@ const ProductForm = () => {
     countInStock: Yup.number().required(),
     brand: Yup.string().required(),
     category: Yup.string().required(),
+    rating: Yup.number().min(1).max(5).required(),
     product_image: Yup.mixed().required().test('fileType', 'invalid image', (e) => {
       return ['image/jpg', 'image/png', 'image/jpeg'].includes(e.type);
     })
@@ -48,7 +49,8 @@ const ProductForm = () => {
         brand: '',
         category: '',
         image: null,
-        imageReview: ''
+        imageReview: '',
+        rating: 0,
 
       },
 
@@ -65,6 +67,7 @@ const ProductForm = () => {
         formData.append('brand', val.brand);
         formData.append('category', val.category);
         formData.append('image', val.image);
+        formData.append('rating', val.rating);
         try {
           await addProduct({
             body: formData,
@@ -118,15 +121,25 @@ const ProductForm = () => {
           />
           {errors.stock && touched.stock && <h1 className='text-pink-700'>{errors.stock}</h1>}
           <Select onChange={(e) => setFieldValue('brand', e)} label="Select Brand">
+            <Option value="Luxury Pet Clothing">Luxury Pet Clothing</Option>
+            <Option value="Casual and Everyday Wear">Casual and Everyday Wear</Option>
+            <Option value="Seasonal and Holiday Themes">Seasonal and Holiday Themes</Option>
 
-            <Option value="Apple">Apple</Option>
-            <Option value="Tesla">Tesla</Option>
-            <Option value="Gucci">Gucci</Option>
 
           </Select>
           <Select onChange={(e) => setFieldValue('category', e)} label="Select Category">
-            <Option value="Clothes">Clothes</Option>
-            <Option value="Tech">Tech</Option>
+
+            <Option value="Fur Seasons">Fur Seasons</Option>
+            <Option value="Paw Couture">Paw Couture</Option>
+            <Option value="Haute Hounds">Haute Hounds</Option>
+            <Option value="Tail Trends">Tail Trends</Option>
+            <Option value="Cozy Critters">Cozy Critters</Option>
+
+            <Option value="The Stylish Snout">The Stylish Snout</Option>
+            <Option value="Whisker Wardrobe">Whisker Wardrobe</Option>
+            <Option value="Fur-tastic Fashions">Fur-tastic Fashions</Option>
+            <Option value=" Cuddly Couture">Cuddly Couture</Option>
+
           </Select>
 
           <Textarea
@@ -136,6 +149,15 @@ const ProductForm = () => {
             name="description"
             onChange={handleChange}
           />
+          {/* Rating Input */}
+          <div className="flex flex-col">
+            <label className="mb-2 text-gray-700">Rating (1 to 5)</label>
+            <Rating
+              value={values.rating}
+              onChange={(val) => setFieldValue('rating', val)} // Update rating in form state
+            />
+            {errors.rating && touched.rating && <h1 className='text-pink-700'>{errors.rating}</h1>}
+          </div>
 
 
           <div className='space-y-2'>

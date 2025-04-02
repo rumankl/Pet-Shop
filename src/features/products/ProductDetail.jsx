@@ -82,17 +82,17 @@ export const AddCart = ({ product }) => {
       product: product._id,
       stock: product.stock
     }));
-    nav('/cart-page');
+    nav(`/cart-page/${product._id}`);
   }
 
   return (
-    <Card className="h-full w-full overflow-scroll">
-      <table className="w-full min-w-max table-auto text-left">
+    <Card className="h-[200px] w-full ">
+      <table className="w-full min-w-max ">
         <thead>
           <tr>
 
             <th
-              className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
+              className="border-b border-red-200 bg-red-50 p-4"
             >
               <Typography
                 variant="small"
@@ -104,7 +104,7 @@ export const AddCart = ({ product }) => {
             </th>
             <th
 
-              className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
+              className="border-b border-red-100 bg-red-50 p-4"
             >
               <Typography
                 variant="small"
@@ -121,7 +121,7 @@ export const AddCart = ({ product }) => {
 
             <th
 
-              className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
+              className="border-b border-red-100 bg-red-50 p-4"
             >
               <Typography
                 variant="small"
@@ -133,13 +133,13 @@ export const AddCart = ({ product }) => {
             </th>
             <th
 
-              className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
+              className="border-b border-red-100 bg-red-50 p-4"
             >
               <div>
 
                 <select
                   defaultValue={formik.values.qty}
-                  name="qty" id=""
+                  name="qty" id="" className='p-2'
 
                   onChange={(e) => formik.setFieldValue('qty', e.target.value)}
                 >
@@ -158,12 +158,9 @@ export const AddCart = ({ product }) => {
 
       </table>
       <div className='flex justify-center pt-7'>
-        <Button disabled={user?.isAdmin || !user} onClick={handleSubmit}>Add To Cart</Button>
+        <Button disabled={user?.isAdmin || !user} onClick={handleSubmit} className='bg-red-500'>Add To Cart</Button>
       </div>
     </Card>
   )
 }
-
-
-
 

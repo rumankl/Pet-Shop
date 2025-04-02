@@ -23,7 +23,7 @@ const Popup = () => {
       >
         <div className="text-slate-800 flex justify-end items-end z-0">
           <i
-            className="text-white cursor-pointer flex justify-center items-center mt-[-10px] mr-[-15px] border-4 rounded-full border-orange-900 bg-orange-900 p-2"
+            className="text-white cursor-pointer flex justify-center items-center mt-[-10px]  border-4 border-orange-900 bg-orange-900 p-2 mr-1 w-8 h-8 rounded-full"
             onClick={handleOpen}
           >
             X

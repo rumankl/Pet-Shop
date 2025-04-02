@@ -146,6 +146,17 @@ export const productApi = createApi({
       }),
       invalidatesTags: ["Product"],
     }),
+    ratingProduct: builder.mutation({
+      query: (q) => ({
+        url: `/products/${q.id}`,
+        body: q.body,
+        method: "PATCH",
+        headers: {
+          Authorization: q.token,
+        },
+      }),
+      invalidatesTags: ["Product"],
+    }),
 
     // Mutation to remove a product
     removeProduct: builder.mutation({
@@ -169,4 +180,5 @@ export const {
   useAddProductMutation,
   useUpdateProductMutation,
   useRemoveProductMutation,
+  useRatingProductMutation,
 } = productApi;

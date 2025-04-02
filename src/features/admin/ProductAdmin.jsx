@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router";
 import { Avatar, Button, Card, Typography } from "@material-tailwind/react";
 import { base } from "../../data/apis";
-import { useGetProductsQuery } from "../products/productApi";
-
+import { useGetProductsQuery, useRemoveProductMutation } from "../products/productApi";
+import { toast } from 'react-toastify';
 
 const ProductAdmin = () => {
-  const { isLoading, isError, error, data } = useGetProductsQuery();
+  const { isLoading, isError, error, data, refetch } = useGetProductsQuery();
+  const [remove, { isLoading: isDeleting }] = useRemoveProductMutation();
   console.log(data);
   const nav = useNavigate();
   const TABLE_HEAD = ["", "Title", "CreatedAt",
@@ -16,6 +17,18 @@ const ProductAdmin = () => {
   }
 
 
+  const handledelete = (productId) => {
+    remove({ id: productId })
+      .then(() => {
+        toast.success('Food deleted successfully');
+        refetch();
+
+      })
+      .catch((err) => {
+
+        console.error("Failed to delete food:", err);
+      });
+  };
 
   return (
     <div className="p-5">
@@ -77,7 +90,14 @@ const ProductAdmin = () => {
                   </td>
 
                   <td className={classes}>
-                    <Button color="orange" size="sm" >Delete</Button>
+                    <Button
+                      color="orange"
+                      size="sm"
+                      onClick={() => handledelete(_id)} // Call the handleDelete function
+                      disabled={isDeleting} // Disable the button while deleting
+                    >
+                      {isDeleting ? 'Deleting...' : 'Delete'}
+                    </Button>
                   </td>
                 </tr>
               );

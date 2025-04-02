@@ -16,29 +16,34 @@ const Header = () => {
       <div className='flex  p-4  justify-between gap-8 items-center'>
 
         <div className='flex  justify-center items-center'>
-          <img className='border rounded-full  border-e-white border-red-300 border-s-8  border-s-green-400' src="R-removebg-preview.png" alt="dog" height={100} width={100} />
-          <h1 className='text-3xl font-semibold  text-green-600'>Global <span className='text-black'>Pet Shop</span></h1>
+          <img className='object-cover rounded-full' src="https://img.freepik.com/premium-vector/pet-shop-logo-vector-art-illustration-8_666870-12534.jpg" alt="dog" height={100} width={100} />
+          <h1 className='text-3xl font-semibold text-teal-400 '>Global <span className='text-black'>Pet Shop</span></h1>
         </div>
         <div className='flex  p-4  justify-between gap-8'>
-          <span>  Email: globalpet@gmail.com</span>
+          <span>  Email:  <a href="mailto:globalpet@gmail"> globalpet@gmail.com</a></span>
           <span> Phone: ++01-1234567</span>
+
 
         </div>
       </div>
-      <nav className=' text-1xl text-black border-red-300 border-b-2 flex gap-4 justify-center p-4'>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/about-page">About Us</NavLink>
-        <NavLink to="/all-product-page">Product</NavLink>
-        <NavLink to="/service-page">Service</NavLink>
-        <NavLink to="/contact-page">Contact</NavLink>
-        <NavLink to="/food">Food</NavLink>
+      <div className='flex  pl-8 pr-8 justify-between gap-8 items-center bg-gray-200 '>
+        <div>
+          <nav className=' text-1xl  text-black flex gap-4 justify-center p-4'>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about-page">About Us</NavLink>
+            <NavLink to="/all-product-page">Product</NavLink>
+            {/* <NavLink to="/service-page">Service</NavLink> */}
+            <NavLink to="/contact-page">Contact</NavLink>
+            <NavLink to="/food">Food</NavLink>
 
-      </nav>
-      <div>
-        {user ? <ProfileMenu user={user} /> : <Button onClick={() => nav('/login')} size="sm" variant="text">
-          <span>Log In</span>
-        </Button>}
+          </nav>
+        </div>
+        <div>
+          {user ? <ProfileMenu user={user} /> : <Button onClick={() => nav('/login')} size="sm" variant="text">
+            <span>Log In</span>
+          </Button>}
 
+        </div>
       </div>
     </div >
 

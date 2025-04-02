@@ -6,12 +6,18 @@ import { removeCart, setCarts } from './cartSlice';
 
 import { Button } from '@material-tailwind/react';
 import { ShowDialog } from '../../ui/ShowDialog';
+import CartRating from './CartRating';
+import { useParams } from 'react-router-dom';
+import { useGetProductByIdQuery } from '../products/productApi';
+
 
 
 const CartPage = () => {
+  const { id } = useParams();
+  const { data: product, isLoading, isError, error } = useGetProductByIdQuery(id);
+  console.log(product)
+
   const [open, setOpen] = useState(false);
-
-
   const { carts } = useSelector((state) => state.cartSlice);
 
   const dispatch = useDispatch();
@@ -22,7 +28,7 @@ const CartPage = () => {
 
   return (
     <div className='p-5'>
-      {carts.length === 0 ? <h1>list is empty add some</h1> :
+      {carts.length === 0 ? <div><CartRating /> </div> :
         <div>
 
           <div >
@@ -63,6 +69,7 @@ const CartPage = () => {
 
           <ShowDialog totalAmount={total} orderItems={carts} />
         </div>}
+
 
     </div>
   )

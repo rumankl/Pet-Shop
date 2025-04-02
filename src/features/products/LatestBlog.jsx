@@ -34,11 +34,17 @@ const LatestBlog = () => {
   };
 
   return (
-    <div>
-
-      <Typography variant="h2" className="text-center mt-8">
-        Latest Blog
-      </Typography>
+    <div className="mb-10">
+      <div className=" flex justify-between pl-10 pr-10">
+        <Typography variant="h2" className="text-center mt-8 text-red-600">
+          Latest Blog
+        </Typography>
+        {data.length > 4 && (
+          <div className="text-center mt-6">
+            <Button onClick={() => nav('/latest-blog')} color="red">Show More</Button>
+          </div>
+        )}
+      </div>
 
       <div className="flex flex-wrap justify-center">
         {data.slice(0, 3).map((cata, index) => (
@@ -63,11 +69,7 @@ const LatestBlog = () => {
         ))}
 
       </div>
-      {data.length > 4 && (
-        <div className="text-center mt-6">
-          <Button onClick={() => nav('/latest-blog')} color="green">Show More</Button>
-        </div>
-      )}
+
     </div>
   );
 };

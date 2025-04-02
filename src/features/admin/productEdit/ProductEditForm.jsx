@@ -134,13 +134,24 @@ const ProductEditForm = ({ product }) => {
           />
           {errors.stock && touched.stock && <h1 className='text-pink-700'>{errors.stock}</h1>}
           <Select value={values.brand} onChange={(e) => setFieldValue('brand', e)} label="Select Brand">
-            <Option value="Apple">Apple</Option>
-            <Option value="Tesla">Tesla</Option>
-            <Option value="Gucci">Gucci</Option>
+            <Option value="Luxury Pet Clothing">Luxury Pet Clothing</Option>
+            <Option value="Casual and Everyday Wear">Casual and Everyday Wear</Option>
+            <Option value="Seasonal and Holiday Themes">Seasonal and Holiday Themes</Option>
           </Select>
           <Select value={values.category} onChange={(e) => setFieldValue('category', e)} label="Select Category">
-            <Option value="Clothes">Clothes</Option>
-            <Option value="Tech">Tech</Option>
+
+
+            <Option value="Fur Seasons">Fur Seasons</Option>
+            <Option value="Paw Couture">Paw Couture</Option>
+            <Option value="Haute Hounds">Haute Hounds</Option>
+            <Option value="Tail Trends">Tail Trends</Option>
+            <Option value="Cozy Critters">Cozy Critters</Option>
+
+            <Option value="The Stylish Snout">The Stylish Snout</Option>
+            <Option value="Whisker Wardrobe">Whisker Wardrobe</Option>
+            <Option value="Fur-tastic Fashions">Fur-tastic Fashions</Option>
+            <Option value=" Cuddly Couture">Cuddly Couture</Option>
+
           </Select>
 
           <Textarea

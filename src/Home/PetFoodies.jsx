@@ -8,9 +8,9 @@ const PetFoodies = () => {
   const animals = ["dog", "cat", "bird"];
 
   return (
-    <div>
+    <div className="mt-10">
       <div className="flex justify-between items-center gap-6 text-2xl">
-        <div className="text-5xl text-center font-bold text-orange-400">
+        <div className="text-5xl text-center font-bold text-red-600">
           <h1>PetFoodies</h1>
         </div>
 

@@ -76,10 +76,6 @@
 // export default App
 
 
-
-
-
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Rootlayout from './components/RootLayout'
 import UserRoutes from './ui/UserRoutes'
@@ -206,7 +202,7 @@ const App = () => {
           element: <FoodDetail />
         },
         {
-          path: 'cart-page',
+          path: 'cart-page/:id',
           element: <CartPage />
         },
         {

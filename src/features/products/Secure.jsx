@@ -23,7 +23,7 @@ const Secure = () => {
     }
   ];
   return (
-    <div className='flex flex-cols justify-around items-center gap-6  mb-32 '>
+    <div className='flex flex-cols justify-around items-center gap-6   '>
 
       {head.map((item, i) => (
         <div key={i} className="flex flex-col items-center justify-center text-center p-4">

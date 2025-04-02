@@ -20,12 +20,12 @@ const productSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ['Clothes', 'Tech'],
+    enum: ['Fur Seasons', 'Paw Couture', 'Haute Hounds', 'Tail Trends', 'Cozy Critters', 'The Stylish Snout', 'Whisker Wardrobe', 'Fur-tastic Fashions', 'Cuddly Couture'],
     required: true
   },
   brand: {
     type: String,
-    enum: ['Apple', 'Tesla', 'Gucci'],
+    enum: ['Luxury Pet Clothing', 'Casual and Everyday Wear', 'Seasonal and Holiday Themes'],
     required: true
   },
   rating: {

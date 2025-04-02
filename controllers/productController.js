@@ -84,9 +84,12 @@ export const createProduct = async (req, res) => {
     title,
     description,
     category, brand,
-    price, stock } = req.body;
+    price, stock, rating } = req.body;
 
   try {
+    if (rating && (rating < 1 || rating > 5)) {
+      return res.status(400).json({ message: 'Rating must be between 1 and 5' });
+    }
     await Product.create({
       title,
       description,
@@ -95,6 +98,7 @@ export const createProduct = async (req, res) => {
       brand,
       price: Number(price),
       stock: Number(stock),
+      rating: rating || 0,
     });
     return res.status(200).json({ message: 'success' });
   } catch (err) {
@@ -180,3 +184,40 @@ export const removeProduct = async (req, res) => {
     return res.status(400).json({ message: `${err}` });
   }
 }
+
+
+// PATCH route handler for updating product rating
+export const ratingProduct = async (req, res) => {
+  const { id } = req.params;
+  const { rating } = req.body; // Get the rating from the request body
+
+  try {
+    // Validate if the product id is valid
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: 'Invalid product ID' });
+    }
+
+    // Check if the product exists
+    const product = await Product.findById(id);
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    // Validate the rating if it's provided
+    if (rating === undefined) {
+      return res.status(400).json({ message: 'Rating is required' });
+    }
+    if (rating < 1 || rating > 5) {
+      return res.status(400).json({ message: 'Rating must be between 1 and 5' });
+    }
+
+    // Update the rating
+    product.rating = rating;
+    await product.save(); // Save the updated product
+
+    return res.status(200).json({ message: 'Rating updated successfully' });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: 'Server error' });
+  }
+};

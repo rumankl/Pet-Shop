@@ -34,7 +34,7 @@ const Dog = () => {
                 onClick={() => navigate(`/food-detail/${_id}`)}
                 ripple={false}
                 fullWidth
-                className="bg-blue-gray-900/10 text-blue-gray-900 hover:scale-105 transition-transform duration-200"
+                className="bg-blue-gray-900/10  text-blue-gray-900 hover:scale-105 transition-transform duration-200"
               >
                 View More
               </Button>

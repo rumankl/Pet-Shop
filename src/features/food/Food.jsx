@@ -23,7 +23,7 @@ const Food = () => {
               <Typography color="blue-gray" className="font-medium">{name}</Typography>
               <Typography color="blue-gray" className="font-medium">${price}</Typography>
             </div>
-            <Typography variant="small" color="gray" className="opacity-75">{description}</Typography>
+            <Typography variant="small" color="gray" className="opacity-75 ">{description}</Typography>
           </CardBody>
           <CardFooter className="pt-0">
             <Button

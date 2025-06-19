@@ -30,7 +30,7 @@ const TopPetClothing = () => {
               {data.products.map(({ _id, image, title, price, description, rating }) => {
                 return (
                   <div className='pt-5 pb-5 pl-3 pr-3 border-2 0 rounded-3xl shadow-lg '>
-                    <div className='flex justify-center items-center'>
+                    <div className='flex justify-center items-center '>
                       <img
                         key={_id}
                         src={`${base}/${image}`}
@@ -40,7 +40,7 @@ const TopPetClothing = () => {
                         className="object-cover rounded-2xl h-[150px]  "
                       />
                     </div>
-                    <h1 className='lg:text-[18px] text-xl font-semibold pt-6 '>{title}</h1>
+                    <h1 className='lg:text-[18px] text-xl font-semibold pt-6 '>{title.split(" ").slice(0, 2).join(" ")}...</h1>
                     {/* <p>{description}</p> */}
                     <p>{`Rs.${price}`}</p>
                     {/* <p> Rating: {rating}</p> */}

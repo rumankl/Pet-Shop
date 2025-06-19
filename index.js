@@ -16,7 +16,8 @@ const app = express();
 // app.use(cors());
 app.use(cors(
   {
-    origin: ['https://pet-shop-xi-taupe.vercel.app', 'http://localhost:3000'],
+    // origin: ['https://pet-shop-xi-taupe.vercel.app', 'http://localhost:3000'],
+    origin: ['https://pet-shop-xi-taupe.vercel.app', 'https://pet-shop-git-frontend-full-stack-f8ecbde2.vercel.app'],
     credentials: true
   }
 ));

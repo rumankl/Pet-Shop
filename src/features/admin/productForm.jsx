@@ -22,7 +22,7 @@ const ProductForm = () => {
   const [addProduct, { isLoading }] = useAddProductMutation();
 
   // const { user } = useSelector((state) => state.userSlice); //remove beacuse we dont needs token . we have call already.so  user  not call
-  const { user } = useSelector((state) => state.userSlice);
+  // const { user } = useSelector((state) => state.userSlice);
 
   const nav = useNavigate();
   const productSchema = Yup.object({
@@ -72,7 +72,7 @@ const ProductForm = () => {
           await addProduct({
             body: formData,
             // token: user.token //remove beacuse we dont needs token to call 
-            token: user.token
+            // token: user.token
           }).unwrap();
           toast.success('add success');
           nav(-1);

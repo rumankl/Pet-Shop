@@ -23,7 +23,7 @@ const ProductEditForm = ({ product }) => {
   const [updateProduct, { isLoading }] = useUpdateProductMutation();
   console.log(product);
   // const { user } = useSelector((state) => state.userSlice);
-  const { user } = useSelector((state) => state.userSlice);
+  // const { user } = useSelector((state) => state.userSlice);
   const nav = useNavigate();
 
   const productSchema = Yup.object({
@@ -69,7 +69,7 @@ const ProductEditForm = ({ product }) => {
               id: product._id,
               body: formData,
               // token: user.token 
-              token: user.token
+              // token: user.token we dont needwhile using cookies
             }).unwrap();
             toast.success(response?.message);
             nav(-1);
@@ -79,7 +79,7 @@ const ProductEditForm = ({ product }) => {
               id: product._id,
               body: formData,
               // token: user.token 
-              token: user.token
+              // token: user.token we dont needwhile using cookies
             }).unwrap();
             toast.success(response?.message);
             nav(-1);

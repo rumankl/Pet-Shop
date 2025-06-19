@@ -11,9 +11,9 @@ export const foodorderApi = createApi({
     getAllFoodOrders: builder.query({
       query: (token) => ({
         url: '/foodorders',
-        headers: {
-          Authorization: token
-        },
+        // headers: {
+        //   Authorization: token
+        // },
         method: 'GET'
       }),
       providesTags: ['FoodOrder']
@@ -22,9 +22,9 @@ export const foodorderApi = createApi({
     getUserFoodOrders: builder.query({
       query: (token) => ({
         url: '/foodorders/users',
-        headers: {
-          Authorization: token
-        },
+        // headers: {
+        //   Authorization: token
+        // },
         method: 'GET'
       }),
       providesTags: ['FoodOrder']
@@ -34,9 +34,9 @@ export const foodorderApi = createApi({
     getFoodOrderDetail: builder.query({
       query: (q) => ({
         url: `/foodorders/users/${q.id}`,
-        headers: {
-          Authorization: q.token
-        },
+        // headers: {
+        //   Authorization: q.token
+        // },
         method: 'GET'
       }),
       providesTags: ['FoodOrder']
@@ -46,9 +46,9 @@ export const foodorderApi = createApi({
       query: (q) => ({
         url: '/foodorders',
         body: q.body,
-        headers: {
-          Authorization: q.token
-        },
+        // headers: {
+        //   Authorization: q.token
+        // },
         method: 'POST'
       }),
       invalidatesTags: ['FoodOrder']

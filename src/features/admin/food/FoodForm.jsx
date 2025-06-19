@@ -19,7 +19,7 @@ import { useAddFoodsMutation } from '../../food/foodApi';
 
 const FoodForm = () => {
   const [addFoods, { isLoading }] = useAddFoodsMutation();
-  const { user } = useSelector((state) => state.userSlice);
+  // const { user } = useSelector((state) => state.userSlice); we dont need while using cookies
   const nav = useNavigate();
   const FoodSchema = Yup.object({
     name: Yup.string().required("Food name is required"),
@@ -69,7 +69,7 @@ const FoodForm = () => {
       try {
         await addFoods({
           body: formData,
-          token: user.token
+          // token: user.token
         }).unwrap();
         toast.success('add success');
         nav(-1);

@@ -30,9 +30,9 @@ export const foodApi = createApi({
         url: "/foods",
         body: q.body,
         method: "POST",
-        headers: {
-          Authorization: q.token,
-        },
+        // headers: {
+        //   Authorization: q.token,
+        // },
       }),
       invalidatesTags: ["food"],
     }),
@@ -41,9 +41,9 @@ export const foodApi = createApi({
         url: `/foods/${q.id}`,
         body: q.body,
         method: "PATCH",
-        headers: {
-          Authorization: q.token,
-        },
+        // headers: {
+        //   Authorization: q.token,
+        // },
       }),
       invalidatesTags: ["Food"],
     }),
@@ -53,9 +53,9 @@ export const foodApi = createApi({
       query: (q) => ({
         url: `/foods/${q.id}`,
         method: "DELETE",
-        headers: {
-          Authorization: q.token,
-        },
+        // headers: {
+        //   Authorization: q.token,
+        // },
       }),
       invalidatesTags: ["Product"],
     }),

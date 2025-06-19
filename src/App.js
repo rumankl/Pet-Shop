@@ -1,80 +1,3 @@
-// import React from 'react'
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
-// import HomePage from './pages/HomePage'
-// import AboutPage from './pages/AboutPage'
-// import ContactPage from './pages/ContactPage'
-// import ProductPage from './pages/ProductPage'
-// import ServicePage from './pages/ServicePage'
-// import Rootlayout from './components/RootLayout'
-// import UserRoutes from './ui/UserRoutes'
-// import Login from './features/auth/Login'
-// import SignUp from './features/auth/SignUp'
-// import ProductAdmin from './features/admin/ProductAdmin'
-// import ProductForm from './features/admin/productForm'
-// import ProductEdit from './features/admin/productEdit/ProductEdit'
-// import Products from './features/products/Products'
-
-// const App = () => {
-//   const router = createBrowserRouter([{
-//     path: '/',
-//     element: <Rootlayout />,
-//     children: [
-//       {
-//         index: true,
-//         element: <HomePage />
-//       }
-//       , {
-//         path: '/about-page',
-//         element: <AboutPage />
-//       }, {
-//         path: '/contact-page',
-//         element: <ContactPage />
-//       }, {
-//         path: '/product-page',
-//         element: <ProductPage />,
-//       }, {
-//         path: '/service-page',
-//         element: <ServicePage />,
-//       }, {
-//         element: <UserRoutes />,
-//         children: [
-//           {
-//             path: '/login',
-//             element: <Login />
-//           },
-//           {
-//             path: '/signup',
-//             element: <SignUp />
-//           }
-//         ]
-//       }, {
-//         path: '/products',
-//         element: <Products />,
-//         children: [
-//           {
-//             path: 'product-admin',
-//             element: <ProductAdmin />
-//           },
-//           {
-//             path: 'product-form',
-//             element: <ProductForm />
-//           }, {
-//             path: 'product-edit/:id',
-//             element: <ProductEdit />
-//           }
-//         ]
-//       }
-
-//     ]
-//   }])
-//   return <RouterProvider router={router} />
-
-
-// }
-
-// export default App
-
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Rootlayout from './components/RootLayout'
@@ -108,6 +31,7 @@ import FormLatestBlog from "./pages/FormLatestBlog"
 import LatestBlogId from "./features/products/LatestBlogId"
 import DisplayMessage from "./features/message/DisplayMessage"
 import MessageDetail from "./features/message/MessageDetail"
+
 const App = () => {
 
   const router = createBrowserRouter([
@@ -253,6 +177,83 @@ const App = () => {
 }
 export default App
 
+
+// import React from 'react'
+// import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+// import HomePage from './pages/HomePage'
+// import AboutPage from './pages/AboutPage'
+// import ContactPage from './pages/ContactPage'
+// import ProductPage from './pages/ProductPage'
+// import ServicePage from './pages/ServicePage'
+// import Rootlayout from './components/RootLayout'
+// import UserRoutes from './ui/UserRoutes'
+// import Login from './features/auth/Login'
+// import SignUp from './features/auth/SignUp'
+// import ProductAdmin from './features/admin/ProductAdmin'
+// import ProductForm from './features/admin/productForm'
+// import ProductEdit from './features/admin/productEdit/ProductEdit'
+// import Products from './features/products/Products'
+
+// const App = () => {
+//   const router = createBrowserRouter([{
+//     path: '/',
+//     element: <Rootlayout />,
+//     children: [
+//       {
+//         index: true,
+//         element: <HomePage />
+//       }
+//       , {
+//         path: '/about-page',
+//         element: <AboutPage />
+//       }, {
+//         path: '/contact-page',
+//         element: <ContactPage />
+//       }, {
+//         path: '/product-page',
+//         element: <ProductPage />,
+//       }, {
+//         path: '/service-page',
+//         element: <ServicePage />,
+//       }, {
+//         element: <UserRoutes />,
+//         children: [
+//           {
+//             path: '/login',
+//             element: <Login />
+//           },
+//           {
+//             path: '/signup',
+//             element: <SignUp />
+//           }
+//         ]
+//       }, {
+//         path: '/products',
+//         element: <Products />,
+//         children: [
+//           {
+//             path: 'product-admin',
+//             element: <ProductAdmin />
+//           },
+//           {
+//             path: 'product-form',
+//             element: <ProductForm />
+//           }, {
+//             path: 'product-edit/:id',
+//             element: <ProductEdit />
+//           }
+//         ]
+//       }
+
+//     ]
+//   }])
+//   return <RouterProvider router={router} />
+
+
+// }
+
+// export default App
 
 
 

@@ -22,19 +22,21 @@ export const authApi = createApi({
         body: query,
       }),
     }),
+
     userLogOut: builder.mutation({
-      query: () => ({
+      query: (q) => ({
         url: "/users/logout",
         method: "POST",
       }),
       invalidatesTags: ["User"],
     }),
+
     userProfile: builder.query({
       query: (token) => ({
         url: '/users/profile',
-        headers: {
-          Authorization: token
-        },
+        // headers: {
+        //   Authorization: token
+        // }, //we dont need this because we use cookies
         method: 'GET'
       }),
       providesTags: ['User']

@@ -14,17 +14,18 @@ const port = 5001;
 
 const app = express();
 // app.use(cors());
+// const cors = require('cors');
 app.use(cors(
   {
-    origin: ['http://localhost:3000'],
-    // origin: ['https://pet-shop-xi-taupe.vercel.app'],
+
+    origin: ['https://pet-shop-navy.vercel.app', 'https://localhost:3000'],
     credentials: true
   }
 ));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static('uploads'));
-// app.use(express.static('uploading'));
+app.use(express.static('uploading'));
 app.use(fileUpload());
 
 mongoose.connect('mongodb+srv://rulokifs:mongodb@cluster0.xlryd.mongodb.net/PetShop').then((val) => {
@@ -33,8 +34,9 @@ mongoose.connect('mongodb+srv://rulokifs:mongodb@cluster0.xlryd.mongodb.net/PetS
   .catch((err) => {
     console.log(err);
   });
+
 app.get('/', (req, res) => {
-  return res.status(200).json({ message: 'welcome to shop' });
+  return res.status(200).json({ message: 'welcome to Petshop world' });
 })
 
 

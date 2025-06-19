@@ -7,15 +7,18 @@ import fileUpload from "express-fileupload";
 import FoodRoutes from "./routes/FoodRoutes.js";
 import foodOrderRoutes from "./routes/foodOrderRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
-
-const port = 5001;
 import cors from "cors";
+const port = 5001;
+
 
 const app = express();
-app.use(cors());
-
-
-
+// app.use(cors());
+app.use(cors(
+  {
+    origin: ['https://pet-shop-xi-taupe.vercel.app'],
+    credentials: true
+  }
+));
 
 app.use(express.json());
 app.use(express.static('uploads'));

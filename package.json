@@ -4,8 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": " nodemon index.js",
-    "build": "echo 'No build step needed'"
+    "start": "set UV_THREADPOOL_SIZE=10 & nodemon index.js"
   },
   "keywords": [],
   "author": "",

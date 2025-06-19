@@ -10,6 +10,7 @@ export const getTopProducts = (req, res, next) => {
 
 // Controller to fetch products based on query
 export const getProducts = async (req, res) => {
+  // console.log(req.cookies);
   try {
     // Fields to exclude from query object
     const excludeFields = ['sort', 'search', 'limit', 'fields', 'skip', 'page'];
@@ -68,6 +69,7 @@ export const getProducts = async (req, res) => {
 
 
 export const getProduct = async (req, res) => {
+
   const { id } = req.params;
   try {
 

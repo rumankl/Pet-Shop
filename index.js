@@ -8,6 +8,7 @@ import FoodRoutes from "./routes/FoodRoutes.js";
 import foodOrderRoutes from "./routes/foodOrderRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 const port = 5001;
 
 
@@ -15,11 +16,11 @@ const app = express();
 // app.use(cors());
 app.use(cors(
   {
-    origin: ['https://pet-shop-xi-taupe.vercel.app'],
+    origin: ['https://pet-shop-xi-taupe.vercel.app', 'http://localhost:3000'],
     credentials: true
   }
 ));
-
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.static('uploads'));
 // app.use(express.static('uploading'));
@@ -45,9 +46,13 @@ app.use('/api/foods', FoodRoutes);
 app.use('/api/foodorders', foodOrderRoutes);
 app.use('/api/messages', messageRoutes);
 
+
+
 app.listen(port, () => {
   console.log(`server is running on port ${port}`)
 });
+
+
 
 
 // import express from "express";

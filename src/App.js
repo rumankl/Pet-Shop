@@ -78,7 +78,7 @@
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Rootlayout from './components/RootLayout'
-import UserRoutes from './ui/UserRoutes'
+import UserRoutes from './UI/UserRoutes'
 import Login from './features/auth/Login'
 import SignUp from './features/auth/SignUp'
 import ProductAdmin from './features/admin/ProductAdmin'

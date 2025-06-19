@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@material-tailwind/react';
 import { removeFoodCart, setFoodCarts } from './foodcartSlice';
 import { base } from '../data/apis';
-import { DisplayDialog } from '../ui/DisplayDialog';
+import { DisplayDialog } from '../UI/DisplayDialog';
 
 // import { ShowDialogg } from '../../ui/ShowDialogg';
 

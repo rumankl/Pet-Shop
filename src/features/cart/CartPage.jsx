@@ -5,7 +5,7 @@ import { base } from '../../data/apis';
 import { removeCart, setCarts } from './cartSlice';
 
 import { Button } from '@material-tailwind/react';
-import { ShowDialog } from '../../ui/ShowDialog';
+import { ShowDialog } from '../../UI/ShowDialog';
 import CartRating from './CartRating';
 import { useParams } from 'react-router-dom';
 import { useGetProductByIdQuery } from '../products/productApi';

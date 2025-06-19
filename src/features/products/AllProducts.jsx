@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardBody, CardFooter, CardHeader, Typography, Button } from "@material-tailwind/react";
-import CardLoading from "../../ui/CardLoading";
+import CardLoading from "../../UI/CardLoading";
 import { base } from '../../data/apis';
 import { useGetProductsQuery } from './productApi';
 import { useNavigate } from 'react-router-dom';

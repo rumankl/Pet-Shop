@@ -20,25 +20,19 @@ export const loginuser = async (req, res) => {
         isAdmin: isExist.isAdmin
       }, 'token');
 
-      // res.cookie(
-      //   'jwt',
-      //   token,
-      //   {
-      //     httpOnly: true,
-      //     maxAge: 24 * 60 * 60 * 1000,
-      //     sameSite: 'None',
-      //     secure: true,//true for production level //falsw fordev face
+      res.cookie(
+        'jwt',
+        token,
+        {
+          httpOnly: true,
+          maxAge: 24 * 60 * 60 * 1000,
+          sameSite: 'None',
+          secure: true,//true for production level //falsw fordev face
 
 
 
-      //   }
-      // );
-      res.cookie('jwt', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // true in production
-        sameSite: 'None',
-        maxAge: 24 * 60 * 60 * 1000 // 1 day
-      });
+        }
+      );
 
       return res.status(200).json({
         token,

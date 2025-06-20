@@ -1,8 +1,6 @@
 import express from 'express';
 import { getAllOrder, addOrder, getOrderUser, getOrderDetail } from '../controllers/orderController.js';
-// import { adminCheck, userCheck } from '../middlewares/authCheck.js';
-import { userCheck, adminCheck } from '../middleware/authCheck.js';
-
+import { adminCheck, userCheck } from '../middlewares/authCheck.js';
 
 
 const router = express.Router();

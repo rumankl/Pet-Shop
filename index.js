@@ -18,7 +18,8 @@ const port = 5001;
 // app.use(cors());
 // const cors = require('cors');
 app.use(cors({
-  origin: ['https://pet-shop-navy.vercel.app', 'http://localhost:3000'],
+  // origin: ['https://pet-shop-navy.vercel.app', 'http://localhost:3000',],
+  origin: ['https://pet-shop-3bkk.vercel.app/'],
   credentials: true,
 }));
 app.use(cookieParser());

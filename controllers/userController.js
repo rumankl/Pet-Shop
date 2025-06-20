@@ -14,7 +14,7 @@ export const loginuser = async (req, res) => {
       }
 
       //console.log(isExist);
-      //logou setup ////////////////////////////
+      //logout setup ////////////////////////////
       const token = jwt.sign({
         id: isExist._id,
         isAdmin: isExist.isAdmin

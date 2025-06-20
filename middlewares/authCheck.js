@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 
 export const userCheck = (req, res, next) => {
   // const token = req.headers.authorization;
+  console.log('Received cookies:', req.cookies);
   const token = req.cookies?.jwt;
   const decode = jwt.decode(token, 'token');
   if (decode) {

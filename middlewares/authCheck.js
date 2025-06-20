@@ -16,7 +16,7 @@ export const adminCheck = (req, res, next) => {
   if (req.isAdmin) {
     next();
   } else {
-    return res.status(401).json({ message: 'unauthorized ' });
+    return res.status(401).json({ message: 'you are not unauthorized ' });
   }
 }
 

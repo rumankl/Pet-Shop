@@ -1,12 +1,15 @@
 // authApi.js
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { baseUrl } from "../../data/apis";
+// import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+// import { baseUrl } from "../../data/apis";
 
-export const authApi = createApi({
-  reducerPath: "authApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: baseUrl,
-  }),
+import { appapi } from "../../app/appApi";
+
+// export const authApi = createApi({
+// reducerPath: "authApi",
+// baseQuery: fetchBaseQuery({
+//   baseUrl: baseUrl,
+// }),
+export const authApi = appapi.injectEndpoints({
   endpoints: (builder) => ({
     userLogin: builder.mutation({
       query: (query) => ({
@@ -21,14 +24,6 @@ export const authApi = createApi({
         method: "POST",
         body: query,
       }),
-    }),
-
-    userLogOut: builder.mutation({
-      query: (q) => ({
-        url: "/users/logout",
-        method: "POST",
-      }),
-      invalidatesTags: ["User"],
     }),
 
     userProfile: builder.query({
@@ -52,6 +47,13 @@ export const authApi = createApi({
       }),
       invalidatesTags: ['User']
     }),
+    userLogOut: builder.mutation({
+      query: (q) => ({
+        url: "/users/logout",
+        method: "POST",
+      }),
+      invalidatesTags: ["User"],
+    }),
   }),
 });
 
@@ -59,7 +61,7 @@ export const authApi = createApi({
 export const {
   useUserLoginMutation,
   useUserSignUpMutation,
-  useUserLogOutMutation,
   useUserProfileQuery,
-  useUpdateUserProfileMutation
+  useUpdateUserProfileMutation,
+  useUserLogOutMutation
 } = authApi;

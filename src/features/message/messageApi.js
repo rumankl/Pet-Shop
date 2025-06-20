@@ -1,12 +1,15 @@
 // authApi.js
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { baseUrl } from "../../data/apis";
+// import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+// import { baseUrl } from "../../data/apis";
 
-export const messageApi = createApi({
-  reducerPath: "messageApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: baseUrl,
-  }),
+import { appapi } from "../../app/appApi";
+
+// export const messageApi = createApi({
+//   reducerPath: "messageApi",
+//   baseQuery: fetchBaseQuery({
+//     baseUrl: baseUrl,
+//   }),
+export const messageApi = appapi.injectEndpoints({
   endpoints: (builder) => ({
 
     createMessage: builder.mutation({

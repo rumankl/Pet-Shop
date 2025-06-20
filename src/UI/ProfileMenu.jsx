@@ -19,8 +19,6 @@ import { useDispatch } from "react-redux";
 import { userLogOut } from "../features/auth/userSlice";
 import { useNavigate } from "react-router";
 import { useUserLogOutMutation } from "../features/auth/authApi";
-
-
 // user profile menu component
 const userMenuItems = [
   {
@@ -83,7 +81,8 @@ const adminMenuItems = [
 
 const ProfileMenu = ({ user }) => {
 
-  const [signout, { isLoading }] = useUserLogOutMutation();
+  const [signOut, { isLoading }] = useUserLogOutMutation();
+
   const dispatch = useDispatch();
   const nav = useNavigate();
 
@@ -94,7 +93,7 @@ const ProfileMenu = ({ user }) => {
 
   const signOutUser = async () => {
     try {
-      await signout().unwrap();
+      await signOut().unwrap();
       dispatch(userLogOut());
     } catch (err) {
       console.log(err);
@@ -162,9 +161,9 @@ const ProfileMenu = ({ user }) => {
                     break;
 
                   case "signout":
-                    //  dispatch(userLogOut());
-                    signOutUser();
 
+                    signOutUser();
+                    //  dispatch(userLogOut());
 
                     closeMenu();
                 }

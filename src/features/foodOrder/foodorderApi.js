@@ -1,11 +1,13 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { baseUrl } from "../../data/apis";
+// import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+// import { baseUrl } from "../../data/apis";
 
+import { appapi } from "../../app/appApi"
 
-export const foodorderApi = createApi({
-  reducerPath: 'foodorderApi',
-  baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
-
+////remove because of cookies & merge in appapi
+// export const foodorderApi = createApi({
+//   reducerPath: 'foodorderApi',
+//   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+export const foodorderApi = appapi.injectEndpoints({
   endpoints: (builder) => ({
 
     getAllFoodOrders: builder.query({

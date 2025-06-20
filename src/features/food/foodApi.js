@@ -1,9 +1,12 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { baseUrl } from "../../data/apis";
+// import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+// import { baseUrl } from "../../data/apis";
 
-export const foodApi = createApi({
-  reducerPath: "foodApi",
-  baseQuery: fetchBaseQuery({ baseUrl }),
+import { appapi } from "../../app/appApi";
+
+// export const foodApi = createApi({
+//   reducerPath: "foodApi",
+//   baseQuery: fetchBaseQuery({ baseUrl }),
+export const foodApi = appapi.injectEndpoints({
   endpoints: (builder) => ({
     getAllFoods: builder.query({
       query: (q) => ({

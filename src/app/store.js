@@ -8,6 +8,7 @@ import { foodApi } from "../features/food/foodApi";
 import { foodcartSlice } from "../foodcart/foodcartSlice";
 import { foodorderApi } from "../features/foodOrder/foodorderApi";
 import { messageApi } from "../features/message/messageApi";
+import { appapi } from "./appApi";
 // import { foodcartSlice } from "../foodcart/foodcartSlice";
 
 
@@ -23,6 +24,7 @@ export const store = configureStore({
     [orderApi.reducerPath]: orderApi.reducer,
     [foodApi.reducerPath]: foodApi.reducer,
     [messageApi.reducerPath]: messageApi.reducer,
+    [appapi.reducerPath]: appapi.reducer
   },
   //caching, polling, invalidation and others
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([
@@ -31,6 +33,7 @@ export const store = configureStore({
     orderApi.middleware,
     foodApi.middleware,
     foodorderApi.middleware,
-    messageApi.middleware
+    messageApi.middleware,
+    appapi.middleware
   ])
 });

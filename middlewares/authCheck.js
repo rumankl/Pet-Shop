@@ -1,17 +1,34 @@
 import jwt from "jsonwebtoken";
 
+// export const userCheck = (req, res, next) => {
+//   // const token = req.headers.authorization;
+//   const token = req.cookies?.jwt;
+//   const decode = jwt.decode(token, 'token');
+//   if (decode) {
+//     req.id = decode.id;
+//     req.isAdmin = decode.isAdmin;
+//     next();
+//   } else {
+//     return res.status(401).json({ message: 'unauthorized user' });
+//   }
+// }
+
+
 export const userCheck = (req, res, next) => {
-  // const token = req.headers.authorization;
   const token = req.cookies?.jwt;
-  const decode = jwt.decode(token, 'token');
-  if (decode) {
-    req.id = decode.id;
-    req.isAdmin = decode.isAdmin;
-    next();
-  } else {
-    return res.status(401).json({ message: 'unauthorized user' });
+  if (!token) {
+    return res.status(401).json({ message: 'No token provided' });
   }
-}
+
+  jwt.verify(token, 'token', (err, decoded) => {
+    if (err) {
+      return res.status(401).json({ message: 'Unauthorized user' });
+    }
+    req.id = decoded.id;
+    req.isAdmin = decoded.isAdmin;
+    next();
+  });
+};
 export const adminCheck = (req, res, next) => {
   if (req.isAdmin) {
     next();

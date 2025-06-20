@@ -1,71 +1,118 @@
-// import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-// import { baseUrl } from "../../data/apis";
+// // import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+// // import { baseUrl } from "../../data/apis";
 
-import { appapi } from "../../app/appApi";
+// import { appapi } from "../../app/appApi";
 
 
-// export const orderApi = createApi({
-//   reducerPath: 'orderApi',
-//   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+// // export const orderApi = createApi({
+// //   reducerPath: 'orderApi',
+// //   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+
+// export const orderApi = appapi.injectEndpoints({
+//   endpoints: (builder) => ({
+
+//     getAllOrders: builder.query({
+//       query: (token) => ({
+//         url: '/orders',
+//         // headers: {
+//         //   Authorization: token
+//         // },
+//         method: 'GET'
+//       }),
+//       providesTags: ['Order']
+//     }),
+
+//     getUserOrders: builder.query({
+//       query: (token) => ({
+//         url: '/orders/users',
+//         // headers: {
+//         //   Authorization: token
+//         // },
+//         method: 'GET'
+//       }),
+//       providesTags: ['Order']
+//     }),
+
+
+//     getOrderDetail: builder.query({
+//       query: (q) => ({
+//         url: `/orders/users/${q.id}`,
+//         // headers: {
+//         //   Authorization: q.token
+//         // },
+//         method: 'GET'
+//       }),
+//       providesTags: ['Order']
+//     }),
+
+//     addOrder: builder.mutation({
+//       query: (q) => ({
+//         url: '/orders',
+//         method: 'POST',
+//         body: q.body,
+//         // headers: {
+//         //   Authorization: q.token
+//         // },
+
+//       }),
+//       invalidatesTags: ['Order']
+//     }),
+
+
+
+
+
+//   })
+
+// });
+
+
+// export const {
+//   useAddOrderMutation,
+//   useGetAllOrdersQuery,
+//   useGetUserOrdersQuery,
+//   useGetOrderDetailQuery
+// } = orderApi;
+
+
+
 
 export const orderApi = appapi.injectEndpoints({
   endpoints: (builder) => ({
-
     getAllOrders: builder.query({
-      query: (token) => ({
+      query: () => ({
         url: '/orders',
-        // headers: {
-        //   Authorization: token
-        // },
         method: 'GET'
       }),
       providesTags: ['Order']
     }),
 
     getUserOrders: builder.query({
-      query: (token) => ({
+      query: () => ({
         url: '/orders/users',
-        // headers: {
-        //   Authorization: token
-        // },
         method: 'GET'
       }),
       providesTags: ['Order']
     }),
 
-
     getOrderDetail: builder.query({
-      query: (q) => ({
-        url: `/orders/users/${q.id}`,
-        // headers: {
-        //   Authorization: q.token
-        // },
+      query: (id) => ({
+        url: `/orders/users/${id}`,
         method: 'GET'
       }),
       providesTags: ['Order']
     }),
 
     addOrder: builder.mutation({
-      query: (q) => ({
+      query: (body) => ({
         url: '/orders',
         method: 'POST',
-        body: q.body,
-        // headers: {
-        //   Authorization: q.token
-        // },
-
+        body: body
       }),
       invalidatesTags: ['Order']
     }),
-
-
-
-
-
   })
-
 });
-
 
 export const {
   useAddOrderMutation,

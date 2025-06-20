@@ -21,19 +21,32 @@ export function ShowDialog({ totalAmount, orderItems }) {
   const handleOpen = () => setOpen(!open);
 
 
+  // const handleSubmit = async () => {
+  //   try {
+  //     await addOrder({
+  //       body: { totalAmount, orderItems },
+  //       token: user.token
+  //       // token: user.token
+  //     }).unwrap();
+  //     toast.success('success');
+  //     dispatch(clearCarts());
+
+  //   } catch (err) {
+  //     toast.error(`${err.data?.message}`);
+
+  //   }
+  // }
+
   const handleSubmit = async () => {
     try {
       await addOrder({
-        body: { totalAmount, orderItems },
-        token: user.token
-        // token: user.token
+        totalAmount,
+        orderItems
       }).unwrap();
-      toast.success('success');
+      toast.success('Order placed successfully');
       dispatch(clearCarts());
-
     } catch (err) {
-      toast.error(`${err.data?.message}`);
-
+      toast.error(err.data?.message || 'Failed to place order');
     }
   }
 

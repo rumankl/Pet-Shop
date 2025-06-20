@@ -17,7 +17,7 @@ const CartPage = () => {
   const { data: product, isLoading, isError, error } = useGetProductByIdQuery(id);
   console.log(product)
 
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const { carts } = useSelector((state) => state.cartSlice);
 
   const dispatch = useDispatch();

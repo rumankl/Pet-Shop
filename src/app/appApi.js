@@ -6,6 +6,7 @@ export const appapi = createApi({
   reducerPath: "appapi",
   baseQuery: fetchBaseQuery({
     baseUrl: baseUrl,
+    method: ["POST", "GET", "PUT", "DELETE"],
     credentials: "include",
     headers: {
       "Content-Type": "application/json",

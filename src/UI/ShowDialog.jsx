@@ -21,34 +21,22 @@ export function ShowDialog({ totalAmount, orderItems }) {
   const handleOpen = () => setOpen(!open);
 
 
-  // const handleSubmit = async () => {
-  //   try {
-  //     await addOrder({
-  //       body: { totalAmount, orderItems },
-  //       token: user.token
-  //       // token: user.token
-  //     }).unwrap();
-  //     toast.success('success');
-  //     dispatch(clearCarts());
-
-  //   } catch (err) {
-  //     toast.error(`${err.data?.message}`);
-
-  //   }
-  // }
-
   const handleSubmit = async () => {
     try {
       await addOrder({
-        totalAmount,
-        orderItems
+        body: { totalAmount, orderItems },
+        token: user.token
+        // token: user.token
       }).unwrap();
-      toast.success('Order placed successfully');
+      toast.success('success');
       dispatch(clearCarts());
+
     } catch (err) {
-      toast.error(err.data?.message || 'Failed to place order');
+      toast.error(`${err.data?.message}`);
+
     }
   }
+
 
   return (
     <>
@@ -71,7 +59,7 @@ export function ShowDialog({ totalAmount, orderItems }) {
           </Button>
           <Button variant="gradient" color="green" onClick={() => {
             handleSubmit();
-            // handleOpen();
+            handleOpen();
           }}>
             <span>Confirm</span>
           </Button>

@@ -13,13 +13,15 @@ import cookieParser from "cookie-parser";
 const port = 5001;
 const app = express();
 
-
-// app.use(cors());
 app.use(cors({
   // origin: ['https://pet-shop-navy.vercel.app', 'http://localhost:3000',],
-  origin: ['https://pet-shop-3bkk.vercel.app/'],
+  origin: ['https://pet-shop-3bkk.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
+}));
+app.options('*', cors({
+  origin: ['https://pet-shop-3bkk.vercel.app'],
+  credentials: true
 }));
 app.use(cookieParser());
 app.use(express.json());

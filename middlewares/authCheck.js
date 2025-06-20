@@ -12,7 +12,7 @@ import jwt from "jsonwebtoken";
 //     return res.status(401).json({ message: 'unauthorized user' });
 //   }
 // }
-import jwt from 'jsonwebtoken';
+
 
 export const userCheck = (req, res, next) => {
   const token = req.cookies?.jwt;

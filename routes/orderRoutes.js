@@ -5,7 +5,7 @@ import { adminCheck, userCheck } from '../middlewares/authCheck.js';
 
 const router = express.Router();
 
-router.route('/').get(userCheck, adminCheck, getAllOrder).post(userCheck, adminCheck, addOrder);
+router.route('/').get(userCheck, adminCheck, getAllOrder).post(userCheck, addOrder);
 
 router.route('/users').get(userCheck, getOrderUser)
 

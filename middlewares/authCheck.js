@@ -1,39 +1,17 @@
 import jwt from "jsonwebtoken";
 
-// export const userCheck = (req, res, next) => {
-//   // const token = req.headers.authorization;
-//   const token = req.cookies?.jwt;
-//   const decode = jwt.decode(token, 'token');
-//   if (decode) {
-//     req.id = decode.id;
-//     req.isAdmin = decode.isAdmin;
-//     next();
-//   } else {
-//     return res.status(401).json({ message: 'unauthorized user' });
-//   }
-// }
-
-
 export const userCheck = (req, res, next) => {
-  console.log('Cookies:', req.cookies);
+  // const token = req.headers.authorization;
   const token = req.cookies?.jwt;
-
-  if (!token) {
-    return res.status(401).json({ message: 'No token provided' });
-  }
-
-  try {
-    const decoded = jwt.verify(token, 'token'); // Replace with your actual secret key
-
-    req.id = decoded.id;
-    req.isAdmin = decoded.isAdmin;
+  const decode = jwt.decode(token, 'token');
+  if (decode) {
+    req.id = decode.id;
+    req.isAdmin = decode.isAdmin;
     next();
-  } catch (error) {
-    return res.status(401).json({ message: 'Invalid or expired token' });
+  } else {
+    return res.status(401).json({ message: 'unauthorized user' });
   }
-};
-
-
+}
 
 export const adminCheck = (req, res, next) => {
   if (req.isAdmin) {

@@ -12,23 +12,28 @@ import jwt from "jsonwebtoken";
 //     return res.status(401).json({ message: 'unauthorized user' });
 //   }
 // }
-
+import jwt from 'jsonwebtoken';
 
 export const userCheck = (req, res, next) => {
   const token = req.cookies?.jwt;
+
   if (!token) {
     return res.status(401).json({ message: 'No token provided' });
   }
 
-  jwt.verify(token, 'token', (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: 'Unauthorized user' });
-    }
+  try {
+    const decoded = jwt.verify(token, 'token'); // Replace with your actual secret key
+
     req.id = decoded.id;
     req.isAdmin = decoded.isAdmin;
     next();
-  });
+  } catch (error) {
+    return res.status(401).json({ message: 'Invalid or expired token' });
+  }
 };
+
+
+
 export const adminCheck = (req, res, next) => {
   if (req.isAdmin) {
     next();

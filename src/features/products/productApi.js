@@ -47,9 +47,9 @@ export const productApi = appapi.injectEndpoints({
         url: "/products",
         body: q.body,
         method: "POST",
-        headers: {
-          Authorization: q.token, // Token for authorization
-        },
+        // headers: {
+        //   Authorization: q.token, // Token for authorization
+        // },
       }),
       invalidatesTags: ["Product"], // Invalidates cache for products
     }),

@@ -15,15 +15,13 @@ const app = express();
 
 app.use(cors({
   // origin: ['https://pet-shop-navy.vercel.app', 'http://localhost:3000',],
-  // origin: ['https://pet-shop-3bkk.vercel.app', 'https://pet-shop-weld.vercel.app/'],
-  origin: ['https://pet-shop-weld.vercel.app/'],
+  origin: ['https://pet-shop-3bkk.vercel.app'],
   // methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
 ////extra cors options if cors policy not working
 app.options('*', cors({
-  // origin: ['https://pet-shop-3bkk.vercel.app', 'https://pet-shop-weld.vercel.app/'],
-  origin: ['https://pet-shop-weld.vercel.app/'],
+  origin: ['https://pet-shop-3bkk.vercel.app'],
   credentials: true
 }));
 

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { clearFoodCartsFromLocal, getFoodCartsFromLocal, setCartsToLocal, setFoodCartsToLocal } from "../hooks/local";
+import { clearFoodCartsFromLocal, getFoodCartsFromLocal, setFoodCartsToLocal } from "../hooks/local";
 
 
 export const foodcartSlice = createSlice({
@@ -27,7 +27,7 @@ export const foodcartSlice = createSlice({
 
     removeFoodCart: (state, action) => {
       state.foodcarts.splice(action.payload, 1);
-      setCartsToLocal(state.foodcarts);
+      setFoodCartsToLocal(state.foodcarts);
     },
 
 

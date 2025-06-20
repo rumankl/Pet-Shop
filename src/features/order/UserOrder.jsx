@@ -12,7 +12,7 @@ const UserOrder = ({ user }) => {
   if (isLoading) {
     return <h1>Loading..A...</h1>
   }
-
+  console.log(data);
 
   return (
     <div>

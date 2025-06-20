@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { base } from '../../data/apis';
 import { removeCart, setCarts } from './cartSlice';
@@ -8,16 +8,16 @@ import { Button } from '@material-tailwind/react';
 import { ShowDialog } from '../../UI/ShowDialog';
 import CartRating from './CartRating';
 import { useParams } from 'react-router-dom';
-import { useGetProductByIdQuery } from '../products/productApi';
+// import { useGetProductByIdQuery } from '../products/productApi';
 
 
 
 const CartPage = () => {
-  const { id } = useParams();
-  const { data: product, isLoading, isError, error } = useGetProductByIdQuery(id);
-  console.log(product)
+  // const { id } = useParams();
+  // const { data: product, isLoading, isError, error } = useGetProductByIdQuery(id);
+  // console.log(product)
 
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const { carts } = useSelector((state) => state.cartSlice);
 
   const dispatch = useDispatch();

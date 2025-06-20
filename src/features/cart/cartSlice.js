@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { clearCartsFromLocal, getCartsFromLocal, setCartsToLocal } from "../../hooks/local";
+import { clearCartsFromLocal, getCartsFromLocal, setCartsToLocal, } from "../../hooks/local";
 
 
 

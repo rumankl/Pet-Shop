@@ -8,6 +8,7 @@ export const appapi = createApi({
     baseUrl: baseUrl,
     credentials: "include",
     headers: {
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     }
   }),

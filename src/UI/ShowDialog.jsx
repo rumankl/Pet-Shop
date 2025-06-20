@@ -71,7 +71,7 @@ export function ShowDialog({ totalAmount, orderItems }) {
           </Button>
           <Button variant="gradient" color="green" onClick={() => {
             handleSubmit();
-            handleOpen();
+            // handleOpen();
           }}>
             <span>Confirm</span>
           </Button>

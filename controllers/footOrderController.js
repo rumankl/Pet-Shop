@@ -26,7 +26,7 @@ export const getFoodOrderDetail = async (req, res) => {
         select: 'fullname email'
       },
       {
-        path: 'orderItems.food',
+        path: 'foodorderItems.food',
         model: 'Food',
         select: 'name image'
 

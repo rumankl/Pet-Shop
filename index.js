@@ -15,7 +15,7 @@ const app = express();
 
 app.use(cors({
 
-  origin: ['https://pet-shop-3bkk.vercel.app', 'http://localhost:3000'],
+  origin: ['https://pet-shop-front.onrender.com', 'https://pet-shop-3bkk.vercel.app', 'http://localhost:3000'],
   credentials: true,
 
 }));

@@ -38,10 +38,10 @@ export const getFoodOrderDetail = async (req, res) => {
   }
 }
 export const addFoodOrder = async (req, res) => {
-  const { totalAmount, foodorderItems } = req.body;
+  const { foodtotalAmount, foodorderItems } = req.body;
   try {
     await FoodOrder.create({
-      totalAmount,
+      foodtotalAmount,
       foodorderItems,
       user: req.id
     });

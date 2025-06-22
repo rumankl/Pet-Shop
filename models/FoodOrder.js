@@ -7,12 +7,12 @@ const FoodorderSchema = new mongoose.Schema({
     required: true,
     ref: 'User'
   },
-  totalAmount: {
+  foodtotalAmount: {
     type: Number,
     required: true,
   },
 
-  orderItems: [
+  foodorderItems: [
     {
       name: { type: String, required: true },
       qty: { type: Number, required: true },

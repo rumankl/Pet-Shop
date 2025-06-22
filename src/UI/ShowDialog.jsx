@@ -11,7 +11,7 @@ import { useAddOrderMutation } from "../features/order/orderApi";
 import { toast } from "react-toastify";
 import { clearCarts } from "../features/cart/cartSlice";
 
-export function ShowDialog({ totalAmount, foodorderItems }) {
+export function ShowDialog({ totalAmount, orderItems }) {
   const dispatch = useDispatch();
   const [addorder, { isLoading }] = useAddOrderMutation();
   const [open, setOpen] = React.useState(false);
@@ -24,7 +24,7 @@ export function ShowDialog({ totalAmount, foodorderItems }) {
   const handleSubmit = async () => {
     try {
       await addorder({
-        body: { totalAmount, foodorderItems },
+        body: { totalAmount, orderItems },
         // token: user.token
         // token: user.token
       }).unwrap();

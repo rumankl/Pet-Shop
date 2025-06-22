@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 
 import { clearFoodCarts } from "../foodcart/foodcartSlice";
 import { useAddFoodOrderMutation } from "../features/foodOrder/foodorderApi";
-export function DisplayDialog({ totalAmount, orderItems }) {
+export function DisplayDialog({ foodtotalAmount, foodorderItems }) {
   const dispatch = useDispatch();
   const [addFoodOrder, { isLoading }] = useAddFoodOrderMutation();
   const [open, setOpen] = React.useState(false);
@@ -24,7 +24,7 @@ export function DisplayDialog({ totalAmount, orderItems }) {
   const handleSubmit = async () => {
     try {
       await addFoodOrder({
-        body: { totalAmount, orderItems },
+        body: { foodtotalAmount, foodorderItems },
         // token: user.token
         token: user.token
       }).unwrap();

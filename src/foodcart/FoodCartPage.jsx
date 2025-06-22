@@ -63,7 +63,7 @@ const FoodCartPage = () => {
           </div>
 
 
-          <DisplayDialog foodtotalAmount={total} orderItems={foodcarts} />
+          <DisplayDialog foodtotalAmount={total} foodorderItems={foodcarts} />
         </div>}
 
     </div>

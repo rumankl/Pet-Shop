@@ -7,11 +7,10 @@ export const appapi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: baseUrl,
     credentials: "include",
-    method: ["POST", "GET", "PUT", "DELETE"],
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+
   }),
   endpoints: (builder) => ({}),
 })

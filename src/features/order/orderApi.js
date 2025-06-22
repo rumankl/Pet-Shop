@@ -48,11 +48,11 @@ export const orderApi = appapi.injectEndpoints({
     addOrder: builder.mutation({
       query: (q) => ({
         url: '/orders',
-        method: 'POST',
         body: q.body,
         // headers: {
         //   Authorization: q.token
         // },
+        method: 'POST',
 
       }),
       invalidatesTags: ['Order']

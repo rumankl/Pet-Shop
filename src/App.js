@@ -129,6 +129,7 @@ const App = () => {
           path: 'cart-page/:id',
           element: <CartPage />
         },
+
         {
           path: 'foodcart-page',
           element: <FoodCartPage />

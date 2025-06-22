@@ -28,7 +28,7 @@ const CartPage = () => {
 
   return (
     <div className='p-5'>
-      {carts.length === 0 ? <div><CartRating /> </div> :
+      {carts.length === 0 ? /*<div><CartRating /></div>*/ <h1>list is empty add some</h1> :
         <div>
 
           <div >

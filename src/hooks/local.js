@@ -8,6 +8,11 @@ export const getUserFromLocal = () => {
   return user ? JSON.parse(user) : null
 }
 
+export const clearUser = () => {
+  localStorage.clear();
+}
+
+//////carts ///////////////////
 
 export const setCartsToLocal = (carts) => {
   localStorage.setItem('carts', JSON.stringify(carts));
@@ -24,11 +29,6 @@ export const clearCartsFromLocal = () => {
   localStorage.removeItem('carts');
 }
 
-
-
-export const clearUser = () => {
-  localStorage.clear();
-}
 
 ////foodCart----//////////////////
 
